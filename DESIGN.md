@@ -260,7 +260,21 @@ Full chat history and prompts are not transferred.
 
 ---
 
-# 6. Model Selection
+# 6. Deterministic Logic (Reducing LLM Usage)
+
+To improve reliability and reduce cost, the system avoids using LLM reasoning for operations that are deterministic.
+
+Instead, these tasks are implemented using structured tools.
+
+| Operation | Implementation |
+|-----------|---------------|
+| Delivery coverage validation | Local district lookup |
+| Menu retrieval | JSON search |
+| Order updates | Structured session state |
+| Price calculation | Deterministic function |
+
+
+# 7. Model Selection
 
 Different tasks require different reasoning complexity.
 The system therefore uses **model routing**.
@@ -294,7 +308,7 @@ Order agent requires reliable function calling.
 
 ---
 
-# 7. Edge Case Handling
+# 8. Edge Case Handling
 
 Robust conversational systems must handle unexpected inputs.
 
@@ -383,7 +397,7 @@ Action
 
 ---
 
-# 8. Logging Strategy
+# 9. Logging Strategy
 
 The system logs operational events.
 
@@ -407,7 +421,7 @@ Logs improve debugging and monitoring.
 
 ---
 
-# 9. Cost and Latency Estimation
+# 10. Cost and Latency Estimation
 
 Estimated token usage for a typical order flow:
 
@@ -449,7 +463,7 @@ Estimated total latency:
 
 ---
 
-# 10. Design Tradeoffs
+# 11. Design Tradeoffs
 
 ### Tool-based Menu Retrieval vs Prompt Menu
 
@@ -472,7 +486,7 @@ This is acceptable for transactional ordering flows.
 
 ---
 
-# 11. Bonus Considerations
+# 12. Bonus Considerations
 
 ## Deployment Strategy
 
@@ -549,7 +563,7 @@ Costs are reduced by:
 
 ---
 
-# 12. Summary
+# 13. Summary
 
 This system design emphasizes:
 
