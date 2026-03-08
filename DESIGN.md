@@ -299,12 +299,12 @@ More complex reasoning such as interpreting menu queries benefits from slightly 
 
 The system therefore uses **model routing**.
 
-| Agent    | Model          | Reason                              |
-| -------- | -------------- | ----------------------------------- |
-| Greeting | GPT-4o-mini    | Fast intent detection               |
-| Location | GPT-4o-mini    | Simple conversation                 |
-| Order    | Claude 3 Haiku | Strong reasoning for menu selection |
-| Checkout | GPT-4o-mini    | Order summarization                 |
+| Agent    | Model          | Reason                                                        |
+|----------|---------------|---------------------------------------------------------------|
+| Greeting | GPT-4o-mini    | Fast intent detection                                        |
+| Location | GPT-4o-mini    | Dialogue fallback; district validation handled deterministically |
+| Order    | Claude 3 Haiku | Strong reasoning for menu selection                          |
+| Checkout | GPT-4o-mini    | Order summarization                                          |
 
 ---
 
@@ -443,43 +443,79 @@ Logs improve debugging and monitoring.
 
 # 10. Cost and Latency Estimation
 
-Estimated token usage for a typical order flow:
+Because deterministic logic handles delivery validation and menu retrieval, only a subset of the pipeline requires LLM inference.
 
-| Step     | Tokens |
-| -------- | ------ |
-| Greeting | 300    |
-| Location | 250    |
-| Ordering | 900    |
-| Checkout | 300    |
+LLM calls occur primarily during:
 
-Estimated total tokens:
+- Greeting (intent understanding)
+- Order interpretation
+- Checkout confirmation
 
-```
-~1750 tokens
-```
-
-Estimated cost per order:
-
-```
-~$0.0015 – $0.003
-```
+The **Location Agent** relies on deterministic tools to validate delivery coverage, which avoids an additional LLM call.
 
 ---
 
-### Latency Estimate
+## Estimated Tokens Per Complete Order
 
-| Agent    | Latency |
-| -------- | ------- |
-| Greeting | ~0.5 s  |
-| Location | ~0.6 s  |
-| Order    | ~1.2 s  |
-| Checkout | ~0.6 s  |
+| Stage | Tokens |
+|------|------|
+Greeting | ~250 |
+Ordering | ~500–600 |
+Checkout | ~200 |
 
-Estimated total latency:
+Estimated total tokens per completed order:
 
 ```
-~3–4 seconds
+~900 – 1100 tokens
 ```
+
+This aligns with the earlier estimate of **~450–600 tokens per individual LLM request**, multiplied across several agent interactions in the conversation.
+
+---
+
+## Estimated LLM Cost
+
+Using small-model pricing (~$0.0005–$0.002 per 1K tokens):
+
+```
+~$0.001 – $0.002 per completed order
+```
+
+Because deterministic tools handle menu search and delivery validation, the system avoids unnecessary model calls, significantly reducing operational cost.
+
+---
+
+## Latency Estimate
+
+| Agent | Latency |
+|------|------|
+Greeting | ~0.5 s |
+Location (deterministic) | ~0.1 s |
+Ordering | ~1.0 – 1.2 s |
+Checkout | ~0.5 s |
+
+Estimated total interaction latency:
+
+```
+~2.1 – 2.8 seconds
+```
+
+Latency is primarily driven by LLM inference time, while deterministic operations such as menu search and district validation execute almost instantly.
+
+---
+
+## Cost Optimization Strategy
+
+Operational costs are minimized using several strategies:
+
+- deterministic delivery coverage validation
+- tool-based menu retrieval instead of injecting the full menu
+- limiting conversation history to the most recent messages
+- routing simple tasks to smaller models
+- caching delivery validation results
+
+These strategies ensure the system remains scalable and cost-efficient even under high order volumes.
+
 
 ---
 
