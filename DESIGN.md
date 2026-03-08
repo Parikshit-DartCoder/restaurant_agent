@@ -188,6 +188,67 @@ Only relevant items are inserted into context.
 
 This dramatically reduces token usage.
 
+### Menu Storage
+
+For this implementation, the restaurant menu is stored as a **local JSON file** rather than a database.
+
+Example structure:
+
+[
+{
+"id": "burger12",
+"name_ar": "برجر دجاج كلاسيك",
+"name_en": "Classic Chicken Burger",
+"price": 25,
+"category": "main",
+"description_ar": "برجر دجاج مشوي مع صوص خاص"
+}
+]
+
+
+The `search_menu()` tool performs lightweight keyword matching over this JSON file to retrieve relevant items.
+
+This approach keeps the implementation simple and removes the need for a database during development.
+
+In a production deployment, the menu would typically be stored in a database or search index.
+
+### Menu Retrieval Pipeline
+
+User Message  
+↓  
+Order Agent  
+↓  
+search_menu(query)  
+↓  
+menu.json  
+↓  
+Top Matching Items  
+↓  
+Inserted Into LLM Context  
+↓  
+Agent Selects Item
+
+Example:
+
+User input:  
+أبغى برجر دجاج
+
+Tool response:
+
+[
+ {"id":"burger12","name_ar":"برجر دجاج كلاسيك","price":25},
+ {"id":"burger14","name_ar":"برجر دجاج سبايسي","price":27}
+]
+
+Only the **top relevant results** are inserted into the LLM prompt instead of the full menu.
+
+Benefits:
+
+- prevents prompt bloat  
+- reduces token usage  
+- improves reasoning accuracy  
+- reduces latency
+
 ---
 
 ## Token Budget Estimate
@@ -270,6 +331,8 @@ SHOULD NOT transfer | full conversation history, previous agent prompts |
 ```
 
 Full chat history and prompts are not transferred.
+
+
 
 ---
 
