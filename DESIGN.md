@@ -192,6 +192,9 @@ This dramatically reduces token usage.
 
 ## Token Budget Estimate
 
+This estimate represents the token usage for a single LLM request.  
+A full order flow typically involves multiple LLM interactions across different agents.
+
 Estimated context usage per request:
 
 | Component            | Tokens |
@@ -228,6 +231,16 @@ Benefits:
 ## Context Transfer Between Agents
 
 Only minimal structured context is transferred.
+
+### Context Transfer Rules
+
+To minimize token usage and prevent context explosion, only structured session state is transferred between agents.
+
+| Category | Data |
+|---|---|
+MUST transfer | intent, delivery type, district, delivery_fee, order_items |
+SHOULD transfer | user name, conversation summary |
+SHOULD NOT transfer | full conversation history, previous agent prompts |
 
 ### Greeting → Location
 
@@ -277,6 +290,13 @@ Instead, these tasks are implemented using structured tools.
 # 7. Model Selection
 
 Different tasks require different reasoning complexity.
+
+### Why Model Routing Instead of One Model
+
+Using a single large model for all stages would increase latency and cost.  
+Simple tasks like greeting and intent detection do not require complex reasoning, so smaller models are used.  
+More complex reasoning such as interpreting menu queries benefits from slightly stronger models.
+
 The system therefore uses **model routing**.
 
 | Agent    | Model          | Reason                              |
@@ -506,6 +526,13 @@ FastAPI Agent Service
 LLM Provider    Session Store
 (OpenRouter)    (Redis)
 ```
+
+Redis is used to store session state for each conversation, including:
+- current order items
+- delivery district
+- conversation state
+
+This allows the system to remain stateless at the API layer while maintaining persistent order context.
 
 Suggested regions:
 
