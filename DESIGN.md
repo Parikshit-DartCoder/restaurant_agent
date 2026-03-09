@@ -352,22 +352,39 @@ Instead, these tasks are implemented using structured tools.
 
 # 7. Model Selection
 
-Different tasks require different reasoning complexity.
+For simplicity and consistency, the system uses a **single model: GPT-4o-mini** for all agents.
 
-### Why Model Routing Instead of One Model
+Although different stages of the ordering flow have different reasoning complexity, GPT-4o-mini provides a strong balance of **Arabic capability, low latency, reliable tool calling, and cost efficiency**, making it suitable for all stages of the pipeline.
 
-Using a single large model for all stages would increase latency and cost.  
-Simple tasks like greeting and intent detection do not require complex reasoning, so smaller models are used.  
-More complex reasoning such as interpreting menu queries benefits from slightly stronger models.
+Using a single model simplifies the architecture by:
 
-The system therefore uses **model routing**.
+- avoiding cross-model latency differences
+- simplifying deployment and monitoring
+- reducing integration complexity
+- maintaining consistent conversational tone across agents
 
-| Agent    | Model          | Reason                                                        |
-|----------|---------------|---------------------------------------------------------------|
-| Greeting | GPT-4o-mini    | Fast intent detection                                        |
-| Location | GPT-4o-mini    | Dialogue fallback; district validation handled deterministically |
-| Order    | Claude 3 Haiku | Strong reasoning for menu selection                          |
-| Checkout | GPT-4o-mini    | Order summarization                                          |
+Each agent uses the same model but with **different system prompts and tools** to control behavior.
+
+| Agent    | Model       | Responsibility |
+|----------|-------------|---------------|
+| Greeting | GPT-4o-mini | Detect intent and start the conversation |
+| Location | GPT-4o-mini | Collect delivery district and call validation tool |
+| Order    | GPT-4o-mini | Interpret menu queries and add items to the order |
+| Checkout | GPT-4o-mini | Summarize the order and confirm checkout |
+
+---
+
+### Model Benchmark Summary
+
+| Benchmark Category | Observation (GPT-4o-mini) | Why It Matters for This System |
+|--------------------|---------------------------|--------------------------------|
+| Arabic Capability | Strong multilingual performance and reliable Arabic conversation | The assistant must understand Saudi dialect, MSA, and code-switching (e.g. "أبي large meal") |
+| Latency (TTFT) | ~400–600 ms typical response start | Restaurant ordering requires fast conversational responses for WhatsApp/chat interfaces |
+| Cost Efficiency | ~$0.0005 per 1K tokens | Keeps cost per completed order extremely low even at high volume |
+| Tool / Function Calling | High reliability with structured JSON outputs | Agents must reliably call tools like `search_menu()` and `add_to_order()` |
+| Context Efficiency | Performs well with small prompts (~500–600 tokens) | Important since prompts are intentionally kept small to reduce latency and cost |
+
+This combination of benchmarks makes **GPT-4o-mini an appropriate choice for a production conversational ordering assistant.**
 
 ---
 
