@@ -1,11 +1,17 @@
 import logging
+import os
+
 
 def get_logger():
+    os.makedirs("logs", exist_ok=True)
 
-    logging.basicConfig(
-        filename="logs/agent.log",
-        level=logging.INFO,
-        format="%(asctime)s %(levelname)s %(message)s"
-    )
+    logger = logging.getLogger("agent")
+    logger.setLevel(logging.INFO)
 
-    return logging.getLogger("agent")
+    if not logger.handlers:
+        handler = logging.FileHandler("logs/agent.log", encoding="utf-8")
+        formatter = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
+
+    return logger

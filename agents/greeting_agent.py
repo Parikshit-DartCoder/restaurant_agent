@@ -1,4 +1,4 @@
-from services.llm_service import chat
+from services.llm_service import LLMUnavailableError, chat
 from utils.arabic_text import detect_intent_hint, normalize_text
 from utils.logger import get_logger
 
@@ -41,21 +41,27 @@ class GreetingAgent:
 
         normalized = normalize_text(message)
 
-        messages = [
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {
-                "role": "user",
-                "content": f"النص الأصلي: {message}\nالنص بعد التطبيع: {normalized}"
-            }
-        ]
+        try:
+            result = (chat(
+                [
+                    {"role": "system", "content": SYSTEM_PROMPT},
+                    {
+                        "role": "user",
+                        "content": f"النص الأصلي: {message}\nالنص بعد التطبيع: {normalized}"
+                    }
+                ]
+            ) or "").strip().upper()
 
-        result = (chat(messages) or "").strip().upper()
+            logger.info(f"Greeting LLM result: {result}")
 
-        logger.info(f"Greeting LLM result: {result}")
+            if "ESCALATION" in result:
+                state.intent = "complaint"
+                return "ESCALATION"
 
-        if "ESCALATION" in result:
-            state.intent = "complaint"
-            return "ESCALATION"
+        except LLMUnavailableError as e:
+            logger.warning(f"Greeting LLM unavailable: {e}")
+        except Exception as e:
+            logger.warning(f"Greeting LLM failed: {e}")
 
         state.intent = "delivery_order"
         return "LOCATION"

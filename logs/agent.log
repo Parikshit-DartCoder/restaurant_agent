@@ -16,3 +16,24 @@
 2026-03-09 16:47:44,924 INFO HANDOFF greeting → location
 2026-03-09 16:47:52,860 INFO TOOL check_delivery_district(النرجس)
 2026-03-09 16:47:52,861 INFO TOOL_RESULT {'covered': True, 'delivery_fee': 15, 'estimated_time': '35 دقيقة'}
+2026-03-10 10:29:55,260 INFO Agent system started
+2026-03-10 10:30:02,669 INFO HANDOFF greeting → location
+2026-03-10 10:30:10,824 INFO TOOL check_delivery_district(ana fil narjis)
+2026-03-10 10:30:10,825 INFO TOOL_RESULT {'covered': True, 'district': 'النرجس', 'delivery_fee': 15, 'estimated_time': '35 دقيقة'}
+2026-03-10 10:30:28,563 INFO ORDER raw message: abgha 2 burger
+2026-03-10 10:30:40,905 INFO ORDER raw message: add fries
+2026-03-10 10:30:51,125 INFO ORDER raw message: shil fries
+2026-03-10 10:30:59,539 INFO ORDER raw message: khalli burger 3
+2026-03-10 10:31:13,571 INFO ORDER raw message: yalla checkout
+2026-03-10 10:31:15,009 INFO HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-03-10 11:18:56,581 WARNING Greeting LLM unavailable: Error code: 401 - {'error': {'message': 'User not found.', 'code': 401}}
+2026-03-10 11:20:11,698 INFO TOOL check_delivery_district(ana fil malqa)
+2026-03-10 11:20:11,698 INFO TOOL_RESULT {'covered': True, 'district': 'الملقا', 'delivery_fee': 10, 'estimated_time': '25 دقيقة'}
+2026-03-10 11:20:25,855 INFO ORDER raw message: abi 2 zinger
+2026-03-10 11:20:26,892 WARNING Order LLM unavailable: Error code: 401 - {'error': {'message': 'User not found.', 'code': 401}}
+2026-03-10 11:20:39,871 INFO ORDER raw message: add coke
+2026-03-10 11:20:40,696 WARNING Order LLM unavailable: Error code: 401 - {'error': {'message': 'User not found.', 'code': 401}}
+2026-03-10 11:20:53,056 INFO ORDER raw message: change zinger 3
+2026-03-10 11:21:09,839 INFO ORDER raw message: remove coke
+2026-03-10 11:21:13,209 INFO ORDER raw message: checkout
+2026-03-10 11:21:13,209 INFO CHECKOUT started

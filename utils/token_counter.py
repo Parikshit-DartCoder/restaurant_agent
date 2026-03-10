@@ -1,7 +1,12 @@
-import tiktoken
+try:
+    import tiktoken
+    _enc = tiktoken.get_encoding("cl100k_base")
+except Exception:
+    _enc = None
 
-enc = tiktoken.get_encoding("cl100k_base")
 
 def estimate_tokens(text):
-
-    return len(enc.encode(text))
+    text = str(text or "")
+    if _enc is None:
+        return max(1, len(text.split()))
+    return len(_enc.encode(text))

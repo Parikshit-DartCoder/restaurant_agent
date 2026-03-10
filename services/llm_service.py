@@ -1,22 +1,62 @@
-from openai import OpenAI
+import json
 import os
-from dotenv import load_dotenv
-load_dotenv()
+import re
+from typing import Any, Dict, List
 
-client = OpenAI(
-    base_url="https://openrouter.ai/api/v1",
-    api_key=os.getenv("OPENROUTER_API_KEY"),
-)
-
-MODEL = "openai/gpt-4o-mini"
+from openai import OpenAI
 
 
-def chat(messages):
+class LLMUnavailableError(RuntimeError):
+    pass
 
-    response = client.chat.completions.create(
-        model=MODEL,
-        messages=messages,
-        temperature=0.2
-    )
 
-    return response.choices[0].message.content
+_client = None
+
+
+def _get_client() -> OpenAI:
+    global _client
+    if _client is None:
+        api_key = os.getenv("OPENAI_API_KEY", "").strip()
+        base_url = os.getenv("OPENAI_BASE_URL", "").strip()
+
+        kwargs = {}
+        if api_key:
+            kwargs["api_key"] = api_key
+        if base_url:
+            kwargs["base_url"] = base_url
+
+        _client = OpenAI(**kwargs)
+    return _client
+
+
+def chat(messages: List[Dict[str, str]], temperature: float = 0) -> str:
+    model = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
+
+    try:
+        response = _get_client().chat.completions.create(
+            model=model,
+            messages=messages,
+            temperature=temperature,
+        )
+        return (response.choices[0].message.content or "").strip()
+    except Exception as e:
+        raise LLMUnavailableError(str(e)) from e
+
+
+def _extract_json_block(text: str) -> str:
+    text = (text or "").strip()
+
+    if text.startswith("{") and text.endswith("}"):
+        return text
+
+    match = re.search(r"\{.*\}", text, flags=re.DOTALL)
+    if match:
+        return match.group(0)
+
+    raise ValueError("No JSON object found in model response")
+
+
+def chat_json(messages: List[Dict[str, str]], temperature: float = 0) -> Dict[str, Any]:
+    raw = chat(messages, temperature=temperature)
+    block = _extract_json_block(raw)
+    return json.loads(block)

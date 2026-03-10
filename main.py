@@ -1,55 +1,51 @@
+from agents.checkout_agent import CheckoutAgent
+from agents.escalation_agent import EscalationAgent
 from agents.greeting_agent import GreetingAgent
 from agents.location_agent import LocationAgent
 from agents.order_agent import OrderAgent
-from agents.checkout_agent import CheckoutAgent
-from agents.escalation_agent import EscalationAgent
 from models.session_state import SessionState
-from utils.logger import get_logger
-
-logger = get_logger()
+from utils.arabic_text import parse_confirmation
 
 
 def main():
-
     state = SessionState()
 
     greeting = GreetingAgent()
+    escalation = EscalationAgent()
     location = LocationAgent()
     order = OrderAgent()
     checkout = CheckoutAgent()
-    escalation = EscalationAgent()
 
-    logger.info("Agent system started")
+    first_message = input("User: ").strip()
 
-    msg = input("User: ")
+    next_stage = greeting.run(first_message, state)
 
-    next_step = greeting.run(msg, state)
-
-    if next_step == "ESCALATION":
-
-        print(escalation.run(msg, state))
+    if next_stage == "ESCALATION":
+        print(escalation.run(first_message, state))
         return
 
-    logger.info("HANDOFF greeting → location")
-
-    district = input("أدخل الحي: ")
-
-    valid = location.run(district, state)
-
-    if not valid:
-        print("لا نوصل لهذه المنطقة")
-        return
+    district = input("أدخل الحي: ").strip()
+    while not location.run(district, state):
+        district = input("لا نوصل لهذه المنطقة. أدخل الحي: ").strip()
 
     while True:
+        query = input("ماذا تريد أن تطلب؟ ").strip()
 
-        query = input("ماذا تريد أن تطلب؟ ")
+        next_stage = order.run(query, state)
 
-        if query == "خلصت":
+        if next_stage == "CHECKOUT":
+            checkout.run(state)
+
+            confirm = input("هل تؤكد الطلب؟ ").strip()
+            answer = parse_confirmation(confirm)
+
+            if answer is True:
+                print("تم تأكيد الطلب.")
+            elif answer is False:
+                print("تم إلغاء الطلب.")
+            else:
+                print("لم أفهم الرد. لم يتم تأكيد الطلب.")
             break
-
-        order.run(query, state)
-
-    print(checkout.run(state))
 
 
 if __name__ == "__main__":

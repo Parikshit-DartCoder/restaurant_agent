@@ -1,7 +1,7 @@
 import json
 import config
 
-from utils.arabic_text import normalize_menu_text, normalize_text
+from utils.arabic_text import normalize_menu_text, normalize_text, score_text_match
 
 
 def load_menu():
@@ -29,24 +29,13 @@ def _score_match(query: str, item: dict) -> int:
     if not query:
         return 0
 
-    query_tokens = set(query.split())
     best = 0
-
     for name in _candidate_names(item):
-        if query == name:
-            best = max(best, 100)
-        elif query in name or name in query:
-            best = max(best, 80)
-        else:
-            name_tokens = set(name.split())
-            overlap = len(query_tokens & name_tokens)
-            if overlap:
-                best = max(best, overlap * 25)
-
+        best = max(best, score_text_match(query, name))
     return best
 
 
-def search_menu(query):
+def search_menu(query, limit=5):
     query = normalize_menu_text(query)
     if not query:
         return []
@@ -58,9 +47,9 @@ def search_menu(query):
             scored.append((score, item))
 
     scored.sort(key=lambda x: (-x[0], normalize_text(x[1].get("name_ar", ""))))
-    return [item for _, item in scored[:5]]
+    return [item for _, item in scored[:limit]]
 
 
 def get_best_menu_match(query):
-    results = search_menu(query)
+    results = search_menu(query, limit=1)
     return results[0] if results else None
