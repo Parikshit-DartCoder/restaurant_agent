@@ -1,0 +1,18 @@
+2026-03-09 16:42:02,359 INFO Agent system started
+2026-03-09 16:43:08,540 INFO HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-09 16:43:08,552 INFO Greeting LLM result: ORDER
+2026-03-09 16:43:08,552 INFO HANDOFF greeting → location
+2026-03-09 16:43:52,671 INFO TOOL check_delivery_district(I want to order burger)
+2026-03-09 16:43:52,672 INFO TOOL_RESULT {'covered': False, 'delivery_fee': 0, 'estimated_time': None}
+2026-03-09 16:46:43,827 INFO Agent system started
+2026-03-09 16:46:47,362 INFO HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-09 16:46:47,375 INFO Greeting LLM result: ORDER
+2026-03-09 16:46:47,375 INFO HANDOFF greeting → location
+2026-03-09 16:47:32,077 INFO TOOL check_delivery_district("النرجس)
+2026-03-09 16:47:32,077 INFO TOOL_RESULT {'covered': False, 'delivery_fee': 0, 'estimated_time': None}
+2026-03-09 16:47:40,698 INFO Agent system started
+2026-03-09 16:47:44,915 INFO HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-09 16:47:44,923 INFO Greeting LLM result: ORDER
+2026-03-09 16:47:44,924 INFO HANDOFF greeting → location
+2026-03-09 16:47:52,860 INFO TOOL check_delivery_district(النرجس)
+2026-03-09 16:47:52,861 INFO TOOL_RESULT {'covered': True, 'delivery_fee': 15, 'estimated_time': '35 دقيقة'}

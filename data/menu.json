@@ -1,0 +1,5 @@
+[
+ { "id": "burger12", "name_ar": "برجر دجاج كلاسيك", "price": 25 },
+ { "id": "burger14", "name_ar": "برجر دجاج سبايسي", "price": 27 },
+ { "id": "fries01", "name_ar": "بطاطس", "price": 10 }
+]
