@@ -1,42 +1,80 @@
 class SessionState:
+
     def __init__(self):
-        self.intent = None
-        self.delivery_type = None
+
+        # main cart storage
+        self.cart = []
+
+        # compatibility alias (some parts of system expect state.items)
+        self.items = self.cart
+
+        # location
         self.district = None
-        self.delivery_fee = 0
+        self.location_confirmed = False
 
-        self.items = []
-        self.subtotal = 0
+    # -----------------------------------
+    # ADD ITEM
+    # -----------------------------------
 
-    def add_item(self, item, quantity=1):
-        # merge if already exists
-        for row in self.items:
-            if row["id"] == item["id"]:
-                row["quantity"] += quantity
-                self.subtotal += item["price"] * quantity
+    def add_item(self, item, quantity):
+
+        for cart_item in self.cart:
+
+            if cart_item["id"] == item["id"]:
+                cart_item["quantity"] += quantity
                 return
 
-        self.items.append({
-            "id": item["id"],
+        self.cart.append({
+            "id": item.get("id", item["name_ar"]),
             "name_ar": item["name_ar"],
             "price": item["price"],
-            "quantity": quantity,
+            "quantity": quantity
         })
-        self.subtotal += item["price"] * quantity
 
-    def remove_item(self, item_name):
-        kept = []
-        for row in self.items:
-            if row["name_ar"] == item_name:
-                self.subtotal -= row["price"] * row["quantity"]
-            else:
-                kept.append(row)
-        self.items = kept
+    # -----------------------------------
+    # REMOVE ITEM
+    # -----------------------------------
 
-    def update_quantity(self, item_name, quantity):
-        for row in self.items:
-            if row["name_ar"] == item_name:
-                self.subtotal -= row["price"] * row["quantity"]
-                row["quantity"] = quantity
-                self.subtotal += row["price"] * row["quantity"]
-                return
+    def remove_item(self, item):
+
+        for cart_item in self.cart:
+
+            if cart_item["id"] == item["id"]:
+                self.cart.remove(cart_item)
+                return True
+
+        return False
+
+    # -----------------------------------
+    # UPDATE ITEM QUANTITY
+    # -----------------------------------
+
+    def update_item(self, item, quantity):
+
+        for cart_item in self.cart:
+
+            if cart_item["id"] == item["id"]:
+                cart_item["quantity"] = quantity
+                return True
+
+        return False
+
+    # -----------------------------------
+    # SUBTOTAL
+    # -----------------------------------
+
+    def subtotal(self):
+
+        total = 0
+
+        for item in self.cart:
+            total += item["price"] * item["quantity"]
+
+        return total
+
+    # -----------------------------------
+    # CLEAR CART
+    # -----------------------------------
+
+    def clear(self):
+        self.cart.clear()

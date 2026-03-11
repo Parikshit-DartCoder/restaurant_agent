@@ -1,55 +1,78 @@
 import json
-import config
+import os
+from difflib import get_close_matches
 
-from utils.arabic_text import normalize_menu_text, normalize_text, score_text_match
+# -------------------------------------------------
+# Load menu.json
+# -------------------------------------------------
 
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+MENU_PATH = os.path.join(BASE_DIR, "data", "menu.json")
 
-def load_menu():
-    with open(config.MENU_PATH, encoding="utf-8") as f:
-        return json.load(f)
-
-
-MENU = load_menu()
-
-
-def _candidate_names(item):
-    names = []
-
-    if item.get("name_ar"):
-        names.append(normalize_menu_text(item["name_ar"]))
-
-    if item.get("name_en"):
-        names.append(normalize_menu_text(item["name_en"]))
-
-    return [n for n in names if n]
+with open(MENU_PATH, "r", encoding="utf-8") as f:
+    MENU = json.load(f)
 
 
-def _score_match(query: str, item: dict) -> int:
-    query = normalize_menu_text(query)
-    if not query:
-        return 0
+# -------------------------------------------------
+# Build search indexes
+# -------------------------------------------------
 
-    best = 0
-    for name in _candidate_names(item):
-        best = max(best, score_text_match(query, name))
-    return best
+EN_INDEX = {}
+AR_INDEX = {}
+
+for item in MENU:
+    EN_INDEX[item["name_en"].lower()] = item
+    AR_INDEX[item["name_ar"]] = item
 
 
-def search_menu(query, limit=5):
-    query = normalize_menu_text(query)
-    if not query:
-        return []
+# -------------------------------------------------
+# Aliases
+# -------------------------------------------------
 
-    scored = []
-    for item in MENU:
-        score = _score_match(query, item)
-        if score > 0:
-            scored.append((score, item))
+ALIASES = {
+    "coke": "coca-cola",
+    "cola": "coca-cola",
+    "كوكا": "كوكاكولا",
+    "بطاطا": "بطاطس",
+}
 
-    scored.sort(key=lambda x: (-x[0], normalize_text(x[1].get("name_ar", ""))))
-    return [item for _, item in scored[:limit]]
 
+def normalize(text):
+
+    text = text.lower().strip()
+
+    if text in ALIASES:
+        text = ALIASES[text]
+
+    return text
+
+
+# -------------------------------------------------
+# Best menu match
+# -------------------------------------------------
 
 def get_best_menu_match(query):
-    results = search_menu(query, limit=1)
-    return results[0] if results else None
+
+    query = normalize(query)
+
+    # direct english
+    if query in EN_INDEX:
+        return EN_INDEX[query]
+
+    # direct arabic
+    if query in AR_INDEX:
+        return AR_INDEX[query]
+
+    # fuzzy english
+    en_matches = get_close_matches(query, EN_INDEX.keys(), n=1, cutoff=0.6)
+
+    if en_matches:
+        return EN_INDEX[en_matches[0]]
+
+    # fuzzy arabic
+    ar_matches = get_close_matches(query, AR_INDEX.keys(), n=1, cutoff=0.6)
+
+    if ar_matches:
+        return AR_INDEX[ar_matches[0]]
+
+    return None

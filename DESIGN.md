@@ -1,719 +1,466 @@
 # DESIGN.md
 
-## Arabic Restaurant Ordering Multi-Agent System
+Arabic Restaurant Ordering Multi-Agent System
 
 ---
 
-# 1. System Overview
+# 1 Architecture Overview
 
-This project implements an **Arabic-language restaurant ordering assistant** designed for messaging platforms such as WhatsApp, web chat, or call-center chat interfaces.
+This system implements an Arabic conversational restaurant ordering assistant using a **multi-agent architecture**.
 
-The system is designed using a **multi-agent architecture** where each agent is responsible for a specific stage of the ordering process. Separating responsibilities across agents allows:
+The goal is to simulate the backend AI of a restaurant ordering system such as:
 
-* smaller prompts
-* clearer reasoning
-* easier debugging
-* better scalability
+- WhatsApp ordering
+- chatbot ordering
+- voice ordering assistant
 
-The system focuses on **food order placement**, while detecting other intents (such as complaints) and redirecting them appropriately.
+The system separates conversation responsibilities across multiple agents.
+
+Each agent has a **single responsibility** and communicates through a shared **SessionState object**.
 
 ---
 
-# 2. Architecture Overview
+# 1.1 Agent Flow
 
-The system processes a conversation through a pipeline of specialized agents.
-
-### Agent Pipeline
+Conversation flows through the following agents:
 
 ```
 User
- │
- ▼
-Greeting Agent
- │
- ▼
-Location Agent
- │
- ▼
-Order Agent
- │
- ▼
-Checkout Agent
- │
- ▼
+ ↓
+GreetingAgent
+ ↓
+LocationAgent
+ ↓
+OrderAgent
+ ↓
+CheckoutAgent
+ ↓
 Order Confirmed
 ```
 
-Each agent performs a specific task and passes minimal context to the next agent.
-
----
-
-# 3. Architecture Diagram
+Escalation path:
 
 ```
-                         +-------------------+
-                         |        USER       |
-                         +---------+---------+
-                                   |
-                                   v
-                         +-------------------+
-                         |  Greeting Agent   |
-                         | Detect intent     |
-                         +----+---------+----+
-                              |         |
-                              |         |
-                              v         v
-                    +--------------+  +----------------+
-                    | Location     |  | Human Support  |
-                    | Agent        |  | (complaints)   |
-                    +------+-------+  +----------------+
-                           |
-                           v
-                    +--------------+
-                    |  Order Agent |
-                    |  Menu search |
-                    |  Add items   |
-                    +------+-------+
-                           |
-                           v
-                    +--------------+
-                    | Checkout     |
-                    | Agent        |
-                    +------+-------+
-                           |
-                           v
-                    +--------------+
-                    | Order        |
-                    | Confirmed    |
-                    +--------------+
-```
-
-The architecture separates **conversation reasoning (agents)** from **deterministic business logic (tools)**.
-
----
-
-# 4. Conversation State Machine
-
-The ordering workflow is modeled as a **conversation state machine**.
-
-This ensures predictable transitions and easier debugging.
-
-### States
-
-| State      | Agent          | Description                    |
-| ---------- | -------------- | ------------------------------ |
-| GREETING   | Greeting Agent | Detect user intent             |
-| LOCATION   | Location Agent | Validate delivery district     |
-| ORDERING   | Order Agent    | Build and modify order         |
-| CHECKOUT   | Checkout Agent | Show summary and confirm order |
-| ESCALATION | Human Support  | Handle complaints              |
-
----
-
-### State Transitions
-
-| Current State | Event                  | Next State               |
-| ------------- | ---------------------- | ------------------------ |
-| GREETING      | delivery order         | LOCATION                 |
-| GREETING      | pickup order           | ORDERING                 |
-| GREETING      | complaint              | ESCALATION               |
-| LOCATION      | district valid         | ORDERING                 |
-| LOCATION      | district invalid       | ORDERING (pickup option) |
-| ORDERING      | user finished ordering | CHECKOUT                 |
-| CHECKOUT      | user modifies order    | ORDERING                 |
-| CHECKOUT      | order confirmed        | END                      |
-
-This structure ensures deterministic flow and simplifies debugging.
-
----
-
-# 5. Context Management Strategy
-
-Large prompt contexts increase both latency and cost.
-This design therefore minimizes prompt size while maintaining the necessary conversational context.
-
----
-
-## Message Roles
-
-The system uses standard chat message roles.
-
-| Role      | Usage              |
-| --------- | ------------------ |
-| system    | Agent instructions |
-| user      | User input         |
-| assistant | Agent response     |
-
-Example:
-
-```
-[
- {"role":"system","content":"You are an Arabic restaurant ordering assistant."},
- {"role":"user","content":"أبغى برجر دجاج"}
-]
+GreetingAgent
+ ↓
+EscalationAgent
 ```
 
 ---
 
-## Menu Handling Strategy
+# 1.2 Agent Responsibilities
 
-The restaurant menu contains **100+ items**, which would create large prompts if injected directly.
-
-Instead, the system retrieves menu items via tools.
-
-Example:
-
-User message
-
-```
-أبغى برجر دجاج
-```
-
-Agent tool call
-
-```
-search_menu("برجر دجاج")
-```
-
-Tool response
-
-```
-[
- {"id":"burger12","name_ar":"برجر دجاج كلاسيك","price":25},
- {"id":"burger14","name_ar":"برجر دجاج سبايسي","price":27}
-]
-```
-
-Only relevant items are inserted into context.
-
-This dramatically reduces token usage.
-
-### Menu Storage
-
-For this implementation, the restaurant menu is stored as a **local JSON file** rather than a database.
-
-Example structure:
-
-[
-{
-"id": "burger12",
-"name_ar": "برجر دجاج كلاسيك",
-"name_en": "Classic Chicken Burger",
-"price": 25,
-"category": "main",
-"description_ar": "برجر دجاج مشوي مع صوص خاص"
-}
-]
-
-
-The `search_menu()` tool performs lightweight keyword matching over this JSON file to retrieve relevant items.
-
-This approach keeps the implementation simple and removes the need for a database during development.
-
-In a production deployment, the menu would typically be stored in a database or search index.
-
-### Menu Retrieval Pipeline
-
-User Message  
-↓  
-Order Agent  
-↓  
-search_menu(query)  
-↓  
-menu.json  
-↓  
-Top Matching Items  
-↓  
-Inserted Into LLM Context  
-↓  
-Agent Selects Item
-
-Example:
-
-User input:  
-أبغى برجر دجاج
-
-Tool response:
-
-[
- {"id":"burger12","name_ar":"برجر دجاج كلاسيك","price":25},
- {"id":"burger14","name_ar":"برجر دجاج سبايسي","price":27}
-]
-
-Only the **top relevant results** are inserted into the LLM prompt instead of the full menu.
-
-Benefits:
-
-- prevents prompt bloat  
-- reduces token usage  
-- improves reasoning accuracy  
-- reduces latency
+| Agent | Responsibility |
+|------|---------------|
+GreetingAgent | Detect greeting, order intent, or complaint |
+LocationAgent | Extract delivery district and validate coverage |
+OrderAgent | Parse order actions and update cart |
+CheckoutAgent | Show order summary and confirm order |
+EscalationAgent | Handle complaints and escalate to human support |
 
 ---
 
-## Token Budget Estimate
+# 1.3 Handoff Conditions
 
-This estimate represents the token usage for a single LLM request.  
-A full order flow typically involves multiple LLM interactions across different agents.
-
-Estimated context usage per request:
-
-| Component            | Tokens |
-| -------------------- | ------ |
-| System instructions  | ~150   |
-| Conversation history | ~300   |
-| Menu search results  | ~120   |
-| Session state        | ~50    |
-
-Estimated total:
-
-```
-~620 tokens
-```
+| From | To | Condition |
+|-----|----|----------|
+GreetingAgent | LocationAgent | greeting or order intent |
+GreetingAgent | EscalationAgent | complaint detected |
+LocationAgent | OrderAgent | district validated |
+OrderAgent | CheckoutAgent | user requests checkout |
+CheckoutAgent | OrderAgent | user chooses تعديل |
 
 ---
 
-## Conversation History Handling
+# 2 Conversation State
 
-To avoid context overflow:
+The system uses a shared **SessionState object** to persist conversation data.
 
-* only the **last 6 messages** are included
-* structured session state stores order information
-* older messages are discarded
-
-Benefits:
-
-* lower latency
-* lower cost
-* simpler prompts
-
----
-
-## Context Transfer Between Agents
-
-Only minimal structured context is transferred.
-
-### Context Transfer Rules
-
-To minimize token usage and prevent context explosion, only structured session state is transferred between agents.
-
-| Category | Data |
-|---|---|
-MUST transfer | intent, delivery type, district, delivery_fee, order_items |
-SHOULD transfer | user name, conversation summary |
-SHOULD NOT transfer | full conversation history, previous agent prompts |
-
-### Greeting → Location
+Example state:
 
 ```
 {
- "intent":"delivery_order"
+ "intent": "delivery_order",
+ "district": "الملقا",
+ "delivery_fee": 10,
+ "location_confirmed": true,
+ "cart": [
+   {"name":"راب زنجر","qty":2,"price":25}
+ ]
 }
 ```
 
-### Location → Order
+Session state contains:
 
-```
-{
- "district":"النرجس",
- "delivery_fee":15
-}
-```
+| Field | Purpose |
+|------|---------|
+intent | user goal (order or complaint) |
+district | delivery district |
+delivery_fee | delivery cost |
+location_confirmed | delivery validation |
+cart | list of ordered items |
 
-### Order → Checkout
-
-```
-{
- "items":[...],
- "subtotal":120,
- "delivery_fee":15
-}
-```
-
-Full chat history and prompts are not transferred.
-
-
+This state is stored **in memory** for this prototype.
 
 ---
 
-# 6. Deterministic Logic (Reducing LLM Usage)
+# 3 Context Management Strategy
 
-To improve reliability and reduce cost, the system avoids using LLM reasoning for operations that are deterministic.
+The system minimizes LLM context usage by relying on:
 
-Instead, these tasks are implemented using structured tools.
+- structured session state
+- deterministic tools
+- limited message history
 
-| Operation | Implementation |
-|-----------|---------------|
-| Delivery coverage validation | Local district lookup |
-| Menu retrieval | JSON search |
-| Order updates | Structured session state |
-| Price calculation | Deterministic function |
-
-
-# 7. Model Selection
-
-For simplicity and consistency, the system uses a **single model: GPT-4o-mini** for all agents.
-
-Although different stages of the ordering flow have different reasoning complexity, GPT-4o-mini provides a strong balance of **Arabic capability, low latency, reliable tool calling, and cost efficiency**, making it suitable for all stages of the pipeline.
-
-Using a single model simplifies the architecture by:
-
-- avoiding cross-model latency differences
-- simplifying deployment and monitoring
-- reducing integration complexity
-- maintaining consistent conversational tone across agents
-
-Each agent uses the same model but with **different system prompts and tools** to control behavior.
-
-| Agent    | Model       | Responsibility |
-|----------|-------------|---------------|
-| Greeting | GPT-4o-mini | Detect intent and start the conversation |
-| Location | GPT-4o-mini | Collect delivery district and call validation tool |
-| Order    | GPT-4o-mini | Interpret menu queries and add items to the order |
-| Checkout | GPT-4o-mini | Summarize the order and confirm checkout |
+Instead of sending the entire menu to the LLM, menu matching is handled through search tools.
 
 ---
 
-### Model Benchmark Summary
+# 3.1 Message Roles
 
-| Benchmark Category | Observation (GPT-4o-mini) | Why It Matters for This System |
-|--------------------|---------------------------|--------------------------------|
-| Arabic Capability | Strong multilingual performance and reliable Arabic conversation | The assistant must understand Saudi dialect, MSA, and code-switching (e.g. "أبي large meal") |
-| Latency (TTFT) | ~400–600 ms typical response start | Restaurant ordering requires fast conversational responses for WhatsApp/chat interfaces |
-| Cost Efficiency | ~$0.0005 per 1K tokens | Keeps cost per completed order extremely low even at high volume |
-| Tool / Function Calling | High reliability with structured JSON outputs | Agents must reliably call tools like `search_menu()` and `add_to_order()` |
-| Context Efficiency | Performs well with small prompts (~500–600 tokens) | Important since prompts are intentionally kept small to reduce latency and cost |
+The LLM interactions use the following message structure:
 
-This combination of benchmarks makes **GPT-4o-mini an appropriate choice for a production conversational ordering assistant.**
+| Role | Purpose |
+|----|----|
+system | agent instructions |
+user | user message |
+assistant | model output |
 
----
-
-## Selection Criteria
-
-### Arabic Capability
-
-Selected models provide reliable Arabic conversational support.
-
-### Latency
-
-Greeting and location agents require fast responses.
-
-### Cost
-
-Routing simple tasks to smaller models reduces cost per order.
-
-### Tool Reliability
-
-Order agent requires reliable function calling.
-
----
-
-# 8. Edge Case Handling
-
-Robust conversational systems must handle unexpected inputs.
-
----
-
-## User Changes Order Type
-
-Example
+Example prompt:
 
 ```
-خلّيها استلام بدل توصيل
-```
+SYSTEM
+أنت مساعد مطعم.
 
-Action
-
-* switch order type to pickup
-* remove delivery fee
-* skip location validation
-
----
-
-## Item Not On Menu
-
-Example
-
-```
-أبغى بيتزا
-```
-
-If no results are found:
-
-```
-عذراً، هذا الصنف غير موجود في القائمة.
-هل ترغب في تجربة شيء مشابه؟
+USER
+ابي زنجر وبطاطس
 ```
 
 ---
 
-## Modify Existing Order
+# 3.2 Context Budget
 
-Example
+Approximate token usage:
 
-```
-شيل البطاطس
-```
+| Component | Tokens |
+|----------|--------|
+System instructions | ~150 |
+User message | ~50 |
+Parsed tool results | ~100 |
 
-Tool call
+Total per request:
 
-```
-remove_item(item_id)
-```
+~300 tokens
 
-Order state is updated.
-
----
-
-## Outside Delivery Coverage
-
-Tool result
-
-```
-{"covered": false}
-```
-
-Response
-
-```
-عذراً، لا نوصل لهذه المنطقة حالياً.
-يمكنك اختيار الاستلام من المطعم.
-```
+This keeps latency low for conversational interaction.
 
 ---
 
-## Complaint Handling
+# 3.3 Menu Handling
 
-Example
+The menu contains 100+ items but is **not placed in the prompt**.
+
+Instead the system uses a tool:
 
 ```
-عندي شكوى
+get_best_menu_match(query)
 ```
 
-Action
+Workflow:
 
-* escalate to human support
-* preserve session context
+1 User requests item
+2 LLM extracts item name
+3 Tool searches menu
+4 Matching item returned
+
+This prevents context overflow.
 
 ---
 
-# 9. Logging Strategy
+# 3.4 Handoff Context
 
-The system logs operational events.
+Agents share state via the SessionState object.
 
-Logged events include:
+### MUST transfer
 
-* agent transitions
-* tool calls
-* token estimates
-* order updates
+- intent
+- district
+- delivery_fee
+- cart items
 
-Example logs
+### SHOULD transfer
 
-```
-[14:23:01] HANDOFF greeting → location
-[14:23:03] TOOL check_delivery_district {district: "النرجس"}
-[14:23:04] RESULT {covered: true, delivery_fee: 15}
-[14:24:10] TOOL add_to_order {item_id: burger12, quantity: 2}
-```
+- location_confirmed
 
-Logs improve debugging and monitoring.
+### SHOULD NOT transfer
 
----
+- previous system prompts
+- entire conversation history
 
-# 10. Cost and Latency Estimation
-
-Because deterministic logic handles delivery validation and menu retrieval, only a subset of the pipeline requires LLM inference.
-
-LLM calls occur primarily during:
-
-- Greeting (intent understanding)
-- Order interpretation
-- Checkout confirmation
-
-The **Location Agent** relies on deterministic tools to validate delivery coverage, which avoids an additional LLM call.
+This keeps prompts small and predictable.
 
 ---
 
-## Estimated Tokens Per Complete Order
+# 3.5 History Handling
 
-| Stage | Tokens |
-|------|------|
-Greeting | ~250 |
-Ordering | ~500–600 |
-Checkout | ~200 |
+Agents do not receive the full conversation history.
 
-Estimated total tokens per completed order:
+Each agent only processes:
 
-```
-~900 – 1100 tokens
-```
-
-This aligns with the earlier estimate of **~450–600 tokens per individual LLM request**, multiplied across several agent interactions in the conversation.
-
----
-
-## Estimated LLM Cost
-
-Using small-model pricing (~$0.0005–$0.002 per 1K tokens):
-
-```
-~$0.001 – $0.002 per completed order
-```
-
-Because deterministic tools handle menu search and delivery validation, the system avoids unnecessary model calls, significantly reducing operational cost.
-
----
-
-## Latency Estimate
-
-| Agent | Latency |
-|------|------|
-Greeting | ~0.5 s |
-Location (deterministic) | ~0.1 s |
-Ordering | ~1.0 – 1.2 s |
-Checkout | ~0.5 s |
-
-Estimated total interaction latency:
-
-```
-~2.1 – 2.8 seconds
-```
-
-Latency is primarily driven by LLM inference time, while deterministic operations such as menu search and district validation execute almost instantly.
-
----
-
-## Cost Optimization Strategy
-
-Operational costs are minimized using several strategies:
-
-- deterministic delivery coverage validation
-- tool-based menu retrieval instead of injecting the full menu
-- limiting conversation history to the most recent messages
-- routing simple tasks to smaller models
-- caching delivery validation results
-
-These strategies ensure the system remains scalable and cost-efficient even under high order volumes.
-
-
----
-
-# 11. Design Tradeoffs
-
-### Tool-based Menu Retrieval vs Prompt Menu
-
-Using tools prevents context overflow and reduces token cost.
-
-### Multi-Agent vs Single Agent
+- the current user message
+- the SessionState
 
 Advantages:
 
-* clearer responsibilities
-* smaller prompts
-* easier debugging
-* easier scaling
+- lower token usage
+- faster response time
+- simpler debugging
 
-### Limited History vs Full History
+Tradeoff:
 
-Short history reduces tokens but slightly reduces conversational memory.
+- less conversational memory
 
-This is acceptable for transactional ordering flows.
-
----
-
-# 12. Bonus Considerations
-
-## Deployment Strategy
-
-Recommended architecture:
-
-```
-Client (WhatsApp / Web)
-        │
-        ▼
-API Gateway
-        │
-        ▼
-FastAPI Agent Service
-        │
- ┌──────┴──────────┐
- ▼                 ▼
-LLM Provider    Session Store
-(OpenRouter)    (Redis)
-```
-
-Redis is used to store session state for each conversation, including:
-- current order items
-- delivery district
-- conversation state
-
-This allows the system to remain stateless at the API layer while maintaining persistent order context.
-
-Suggested regions:
-
-* AWS Bahrain (me-south-1)
-* GCP Dammam
-
-These provide low latency for Saudi Arabia.
+This is acceptable for structured tasks such as food ordering.
 
 ---
 
-## Arabic Language Nuances
+# 4 LLM Usage
 
-Arabic conversation includes dialect mixing and code switching.
+The system uses LLMs only for **language understanding tasks**.
 
-Example input
+### GreetingAgent
 
-```
-أبي large meal
-```
+Uses:
 
-The system normalizes common English terms and dialect variations before menu search.
+- rule-based detection for greetings
+- LLM classification for intent detection
 
-Diacritics are also removed to improve matching.
-
-Example
+Possible intents:
 
 ```
-بُرْجَر → برجر
+GREETING
+ORDER
+ESCALATION
 ```
 
 ---
 
-## Human Escalation
+### LocationAgent
 
-Certain situations trigger escalation.
+Uses LLM JSON extraction to obtain the delivery district.
 
-| Trigger                   | Example                |
-| ------------------------- | ---------------------- |
-| Complaint                 | "عندي شكوى"            |
-| Repeated misunderstanding | agent fails repeatedly |
-| Sensitive requests        | refund requests        |
+Example output:
 
-The system forwards conversation context to a human operator.
+```
+{
+ "district": "الملقا"
+}
+```
 
----
+Delivery coverage is then validated by a tool:
 
-## Cost Optimization
-
-Costs are reduced by:
-
-* routing simple tasks to smaller models
-* retrieving menu items via tools
-* limiting prompt history
-* caching delivery checks
+```
+check_delivery_district()
+```
 
 ---
 
-# 13. Summary
+### OrderAgent
 
-This system design emphasizes:
+The LLM parses order commands into structured JSON.
 
-* modular multi-agent architecture
-* efficient context management
-* tool-based menu retrieval
-* scalable deployment
-* cost-efficient model usage
+Example response:
 
-The architecture enables a responsive and reliable Arabic ordering assistant suitable for real restaurant messaging systems.
+```
+{
+ "action": "add",
+ "item": "zinger",
+ "quantity": 2
+}
+```
+
+Possible actions:
+
+| Action | Meaning |
+|------|------|
+add | add item |
+remove | remove item |
+update | change quantity |
+checkout | finish order |
+
+Cart operations are executed by deterministic code.
+
+---
+
+### CheckoutAgent
+
+This agent does not use the LLM.
+
+It retrieves order state and renders a summary.
+
+Example response:
+
+```
+ملخص الطلب:
+راب زنجر × 2
+بطاطس × 1
+
+المجموع الفرعي: 60
+رسوم التوصيل: 10
+الإجمالي: 70
+هل تؤكد الطلب؟ (نعم / تعديل)
+```
+
+---
+
+# 5 Edge Case Handling
+
+### Unknown menu item
+
+```
+add pizza
+```
+
+Response:
+
+```
+عذراً هذا الصنف غير موجود.
+```
+
+---
+
+### Removing non-existing item
+
+Response:
+
+```
+العنصر غير موجود في الطلب
+```
+
+---
+
+### Checkout with empty cart
+
+CheckoutAgent detects empty order.
+
+Response:
+
+```
+الطلب الحالي فارغ.
+```
+
+---
+
+### Delivery outside coverage
+
+LocationAgent checks delivery district.
+
+Response:
+
+```
+عذراً التوصيل غير متوفر لهذا الحي.
+```
+
+---
+
+# 6 Logging Strategy
+
+The system logs important events.
+
+Examples:
+
+```
+AGENT_TRIGGER GreetingAgent
+HANDOFF GreetingAgent → LocationAgent
+LLM_CALL OrderParser
+ORDER_ADD راب زنجر x2
+ORDER_REMOVE كوكاكولا
+CHECKOUT subtotal=50 delivery=10 total=60
+```
+
+Logs help with:
+
+- debugging
+- monitoring
+- understanding agent transitions
+
+---
+
+# 7 Deployment Strategy
+
+This prototype runs locally as a Python application.
+
+Architecture:
+
+```
+User
+ ↓
+Python application
+ ↓
+Agents
+ ↓
+LLM provider (OpenRouter / OpenAI)
+```
+
+Session state is stored **in memory**.
+
+In production this could be replaced with:
+
+- Redis session storage
+- distributed API service
+
+---
+
+# 8 Arabic Language Considerations
+
+The system supports:
+
+- Modern Standard Arabic
+- dialect expressions
+- Arabic/English code switching
+
+Examples:
+
+```
+ابي 2 zinger
+add fries
+غير البطاطس 3
+```
+
+Menu search normalizes text before matching.
+
+---
+
+# 9 Cost Estimate
+
+Estimated token usage per order:
+
+Greeting intent detection ~150  
+Location extraction ~150  
+Order parsing ~500  
+Checkout summary ~50  
+
+Total:
+
+~850 tokens per order.
+
+Using a lightweight model, estimated cost per order is very low (< $0.002).
+
+---
+
+# 10 Summary
+
+This system implements an Arabic restaurant ordering assistant using:
+
+- modular multi-agent architecture
+- shared session state
+- LLM-based language understanding
+- deterministic business logic
+- tool-based menu search
+
+The design focuses on:
+
+- clear agent boundaries
+- low token usage
+- reliable order management
+- simple deployment

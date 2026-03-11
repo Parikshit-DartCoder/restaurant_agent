@@ -1,26 +1,27 @@
-from services.llm_service import LLMUnavailableError, chat
-from utils.arabic_text import detect_intent_hint, normalize_text
+from services.llm_service import chat
 from utils.logger import get_logger
 
-logger = get_logger()
+logger = get_logger("restaurant_agent")
+
+GREETING_WORDS = [
+    "hi", "hello", "hey",
+    "مرحبا", "اهلا", "السلام", "السلام عليكم"
+]
 
 SYSTEM_PROMPT = """
-أنت مصنف نية لمساعد طلبات مطعم في السعودية.
+أنت مساعد مطعم.
 
-قد يكتب المستخدم بالعربية أو الإنجليزية أو لهجة خليجية/سعودية أو نص مختلط
-أو Arabizi مثل:
-- abgha burger
-- ابي اطلب
-- I want food
-- عندي شكوى
-- delivery late
-- order wrong
+حدد نية المستخدم.
 
-القواعد:
-- إذا كان يريد طلب طعام أو بدء طلب → ORDER
-- إذا كانت شكوى أو مشكلة أو تأخير أو خطأ في الطلب → ESCALATION
+الخيارات:
 
-أجب فقط بكلمة واحدة:
+GREETING → إذا كان المستخدم يقول مرحبا أو يبدأ المحادثة
+ORDER → إذا كان يريد طلب طعام
+ESCALATION → إذا كان لديه شكوى أو مشكلة
+
+أجب بكلمة واحدة فقط:
+
+GREETING
 ORDER
 ESCALATION
 """
@@ -29,39 +30,36 @@ ESCALATION
 class GreetingAgent:
 
     def run(self, message, state):
-        hint = detect_intent_hint(message)
 
-        if hint == "ESCALATION":
-            state.intent = "complaint"
-            return "ESCALATION"
+        logger.info("AGENT_TRIGGER GreetingAgent")
 
-        if hint == "ORDER":
-            state.intent = "delivery_order"
+        msg = (message or "").strip().lower()
+
+        if msg in GREETING_WORDS:
+
+            logger.info("GREETING detected via rule")
+            logger.info("HANDOFF GreetingAgent → LocationAgent")
+
             return "LOCATION"
 
-        normalized = normalize_text(message)
+        result = chat([
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": message}
+        ]).strip().upper()
 
-        try:
-            result = (chat(
-                [
-                    {"role": "system", "content": SYSTEM_PROMPT},
-                    {
-                        "role": "user",
-                        "content": f"النص الأصلي: {message}\nالنص بعد التطبيع: {normalized}"
-                    }
-                ]
-            ) or "").strip().upper()
+        logger.info(f"LLM intent result={result}")
 
-            logger.info(f"Greeting LLM result: {result}")
+        if result == "ESCALATION":
+            state.intent = "complaint"
+            logger.info("HANDOFF GreetingAgent → EscalationAgent")
+            return "ESCALATION"
 
-            if "ESCALATION" in result:
-                state.intent = "complaint"
-                return "ESCALATION"
-
-        except LLMUnavailableError as e:
-            logger.warning(f"Greeting LLM unavailable: {e}")
-        except Exception as e:
-            logger.warning(f"Greeting LLM failed: {e}")
+        if result == "GREETING":
+            logger.info("HANDOFF GreetingAgent → LocationAgent")
+            return "LOCATION"
 
         state.intent = "delivery_order"
+
+        logger.info("HANDOFF GreetingAgent → LocationAgent")
+
         return "LOCATION"

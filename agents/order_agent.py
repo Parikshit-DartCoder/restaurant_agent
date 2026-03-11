@@ -1,126 +1,168 @@
-from services.llm_service import LLMUnavailableError, chat_json
-from tools.menu_tools import get_best_menu_match, search_menu
-from tools.order_tools import find_best_cart_item
-from utils.arabic_text import (
-    extract_item_hint,
-    extract_quantity,
-    is_checkout_request,
-    normalize_menu_text,
-    parse_order_edit,
-)
+from services.llm_service import chat_json
+from tools.menu_tools import get_best_menu_match
+from utils.arabic_text import normalize_menu_text, contains_any, YES_WORDS
 from utils.logger import get_logger
 
-logger = get_logger()
-
-SYSTEM_PROMPT = """
-أنت محلل لرسالة طلب مطعم. قد يكتب المستخدم بالعربية أو الإنجليزية أو لهجة أو Arabizi.
-
-استخرج النية في JSON فقط بالشكل:
-{
-  "action": "add|remove|update_qty|checkout|unknown",
-  "item_name": "<short item hint or empty string>",
-  "quantity": <number or null>
-}
-
-أمثلة:
-"abgha 2 burger" -> {"action":"add","item_name":"burger","quantity":2}
-"add fries" -> {"action":"add","item_name":"fries","quantity":1}
-"shil fries" -> {"action":"remove","item_name":"fries","quantity":null}
-"khalli burger 3" -> {"action":"update_qty","item_name":"burger","quantity":3}
-"yalla checkout" -> {"action":"checkout","item_name":"","quantity":null}
-"""
+logger = get_logger("restaurant_agent")
 
 
 class OrderAgent:
 
-    def _apply_edit(self, action, item_hint, qty, state):
-        cart_name = find_best_cart_item(state, item_hint)
-
-        if not cart_name:
-            menu_match = get_best_menu_match(item_hint)
-            if menu_match:
-                cart_name = find_best_cart_item(state, menu_match["name_ar"])
-
-        if not cart_name:
-            print("لم أجد هذا الصنف في الطلب الحالي")
-            return None
-
-        if action == "remove":
-            state.remove_item(cart_name)
-            print(f"تم حذف {cart_name}")
-            return None
-
-        if action == "update_qty":
-            if qty is None:
-                print("لم أفهم الكمية المطلوبة")
-                return None
-            state.update_quantity(cart_name, qty)
-            print(f"تم تعديل كمية {cart_name} إلى {qty}")
-            return None
-
-        return None
-
-    def _apply_add(self, item_hint, qty, state):
-        items = search_menu(item_hint)
-
-        if not items:
-            return False
-
-        item = items[0]
-        state.add_item(item, qty or 1)
-        print(f"تمت إضافة {item['name_ar']} × {qty or 1}")
-        return True
-
     def run(self, message, state):
-        logger.info(f"ORDER raw message: {message}")
 
-        if is_checkout_request(message):
-            return "CHECKOUT"
+        logger.info("AGENT_TRIGGER OrderAgent")
 
-        local_edit = parse_order_edit(message)
-        if local_edit:
-            return self._apply_edit(
-                local_edit["action"],
-                local_edit["item_name"],
-                local_edit["quantity"],
-                state,
-            )
+        if not message:
+            return "لم أفهم الطلب. ماذا تريد أن تطلب؟"
 
-        item_hint = extract_item_hint(message)
-        qty = extract_quantity(message, default=1)
+        message = message.strip()
 
-        if item_hint and self._apply_add(item_hint, qty, state):
-            return None
+        # ------------------------------------
+        # Ignore confirmations
+        # ------------------------------------
+        if contains_any(message, YES_WORDS):
+            return "ماذا تريد أن تطلب؟"
+
+        parsed = None
 
         try:
-            parsed = chat_json(
-                [
-                    {"role": "system", "content": SYSTEM_PROMPT},
-                    {
-                        "role": "user",
-                        "content": f"raw={message}\nlocal_item_hint={item_hint}\nlocal_qty={qty}"
-                    }
-                ]
-            )
 
-            action = (parsed.get("action") or "unknown").strip().lower()
-            llm_item_hint = normalize_menu_text(parsed.get("item_name") or item_hint or "")
-            llm_qty = parsed.get("quantity", qty)
+            logger.info("LLM_CALL OrderParser")
 
+            parsed = chat_json([
+                {
+                    "role": "system",
+                    "content": """
+أنت مساعد طلبات مطعم.
+
+حلل رسالة المستخدم وارجع JSON فقط.
+
+يمكن أن يكون الرد:
+object واحد
+او list من objects
+
+كل object يجب أن يكون بالشكل التالي:
+
+{
+ "action": "add|remove|update|checkout",
+ "item": "string",
+ "quantity": number
+}
+
+قواعد:
+- اذا المستخدم يريد انهاء الطلب استخدم action=checkout
+- اذا لم يذكر الكمية اجعلها 1
+- اذا كان الطلب تعديل كمية استخدم update
+- اذا كان حذف استخدم remove
+"""
+                },
+                {"role": "user", "content": message}
+            ])
+
+        except Exception as e:
+
+            logger.warning("LLM parsing failed: %s", e)
+
+            return "لم أفهم الطلب. ماذا تريد أن تطلب؟"
+
+        if not parsed:
+            return "لم أفهم الطلب. ماذا تريد أن تطلب؟"
+
+        # ------------------------------------
+        # Normalize output to list
+        # ------------------------------------
+        if isinstance(parsed, dict):
+            parsed = [parsed]
+
+        responses = []
+
+        for cmd in parsed:
+
+            action = cmd.get("action")
+            item = cmd.get("item")
+            qty = cmd.get("quantity", 1)
+
+            # ---------------------------
+            # CHECKOUT
+            # ---------------------------
             if action == "checkout":
+
+                logger.info("HANDOFF OrderAgent → CheckoutAgent")
+
                 return "CHECKOUT"
 
-            if action in {"remove", "update_qty"}:
-                return self._apply_edit(action, llm_item_hint, llm_qty, state)
+            if not item:
+                continue
 
+            item = normalize_menu_text(item)
+
+            menu_item = get_best_menu_match(item)
+
+            if not menu_item:
+
+                responses.append("عذراً هذا الصنف غير موجود.")
+
+                continue
+
+            # ---------------------------
+            # ADD
+            # ---------------------------
             if action == "add":
-                if self._apply_add(llm_item_hint, llm_qty or 1, state):
-                    return None
 
-        except LLMUnavailableError as e:
-            logger.warning(f"Order LLM unavailable: {e}")
-        except Exception as e:
-            logger.warning(f"Order LLM parse failed: {e}")
+                state.add_item(menu_item, qty)
 
-        print("هذا الصنف غير موجود أو لم أفهم الطلب")
-        return None
+                logger.info(
+                    f"ORDER_ADD {menu_item['name_ar']} x{qty}"
+                )
+
+                responses.append(
+                    f"تمت إضافة {menu_item['name_ar']} × {qty}"
+                )
+
+            # ---------------------------
+            # REMOVE
+            # ---------------------------
+            elif action == "remove":
+
+                if state.remove_item(menu_item):
+
+                    logger.info(
+                        f"ORDER_REMOVE {menu_item['name_ar']}"
+                    )
+
+                    responses.append(
+                        f"تم حذف {menu_item['name_ar']}"
+                    )
+
+                else:
+
+                    responses.append(
+                        "العنصر غير موجود في الطلب"
+                    )
+
+            # ---------------------------
+            # UPDATE
+            # ---------------------------
+            elif action == "update":
+
+                if state.update_item(menu_item, qty):
+
+                    logger.info(
+                        f"ORDER_UPDATE {menu_item['name_ar']} x{qty}"
+                    )
+
+                    responses.append(
+                        f"تم تعديل كمية {menu_item['name_ar']} إلى {qty}"
+                    )
+
+                else:
+
+                    responses.append(
+                        "العنصر غير موجود في الطلب"
+                    )
+
+        if not responses:
+
+            return "لم أفهم الطلب. ماذا تريد أن تطلب؟"
+
+        return "\n".join(responses)

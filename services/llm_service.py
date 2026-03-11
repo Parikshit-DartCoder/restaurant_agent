@@ -1,62 +1,128 @@
-import json
 import os
+import json
 import re
-from typing import Any, Dict, List
 
+from dotenv import load_dotenv
 from openai import OpenAI
 
+from utils.logger import get_logger
 
-class LLMUnavailableError(RuntimeError):
+# ---------------------------------------------------
+# Load environment variables from .env
+# ---------------------------------------------------
+
+load_dotenv()
+
+logger = get_logger("LLM")
+
+
+class LLMUnavailableError(Exception):
     pass
 
 
 _client = None
 
 
-def _get_client() -> OpenAI:
+# ---------------------------------------------------
+# Create OpenAI / OpenRouter client
+# ---------------------------------------------------
+
+def _get_client():
     global _client
-    if _client is None:
-        api_key = os.getenv("OPENAI_API_KEY", "").strip()
-        base_url = os.getenv("OPENAI_BASE_URL", "").strip()
 
-        kwargs = {}
-        if api_key:
-            kwargs["api_key"] = api_key
-        if base_url:
-            kwargs["base_url"] = base_url
+    if _client:
+        return _client
 
-        _client = OpenAI(**kwargs)
+    api_key = os.getenv("OPENAI_API_KEY")
+
+    if not api_key:
+        raise LLMUnavailableError("OPENAI_API_KEY missing")
+
+    logger.info("Initializing OpenAI client")
+
+    _client = OpenAI(
+        api_key=api_key,
+        base_url="https://openrouter.ai/api/v1",
+    )
+
     return _client
 
 
-def chat(messages: List[Dict[str, str]], temperature: float = 0) -> str:
-    model = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
+# ---------------------------------------------------
+# Basic chat call
+# ---------------------------------------------------
+
+def chat(messages, temperature=0):
 
     try:
+
+        logger.info("LLM CALL START")
+
         response = _get_client().chat.completions.create(
-            model=model,
+            model="openai/gpt-4o-mini",
             messages=messages,
             temperature=temperature,
         )
-        return (response.choices[0].message.content or "").strip()
-    except Exception as e:
-        raise LLMUnavailableError(str(e)) from e
 
+        text = response.choices[0].message.content
 
-def _extract_json_block(text: str) -> str:
-    text = (text or "").strip()
+        logger.info("LLM RESPONSE RECEIVED")
 
-    if text.startswith("{") and text.endswith("}"):
         return text
 
-    match = re.search(r"\{.*\}", text, flags=re.DOTALL)
+    except Exception as e:
+
+        logger.error("LLM CALL FAILED")
+
+        raise LLMUnavailableError(str(e))
+
+
+# ---------------------------------------------------
+# Extract JSON from model output
+# ---------------------------------------------------
+
+def _extract_json_block(text):
+
+    text = text.strip()
+
+    # direct JSON
+    if text.startswith("{") or text.startswith("["):
+        return text
+
+    # search JSON inside text
+    match = re.search(r"(\{.*\}|\[.*\])", text, re.DOTALL)
+
     if match:
-        return match.group(0)
+        return match.group(1)
 
     raise ValueError("No JSON object found in model response")
 
 
-def chat_json(messages: List[Dict[str, str]], temperature: float = 0) -> Dict[str, Any]:
-    raw = chat(messages, temperature=temperature)
-    block = _extract_json_block(raw)
-    return json.loads(block)
+# ---------------------------------------------------
+# Chat expecting JSON
+# ---------------------------------------------------
+
+def chat_json(messages):
+
+    logger.info("CHAT_JSON START")
+
+    raw = chat(messages)
+
+    logger.info("Raw LLM output captured")
+
+    try:
+
+        block = _extract_json_block(raw)
+
+        data = json.loads(block)
+
+        logger.info("JSON successfully parsed")
+
+        return data
+
+    except Exception:
+
+        logger.warning("No JSON detected in model output")
+        logger.warning("Model output: %s", raw)
+
+        return None

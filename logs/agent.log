@@ -37,3 +37,41 @@
 2026-03-10 11:21:09,839 INFO ORDER raw message: remove coke
 2026-03-10 11:21:13,209 INFO ORDER raw message: checkout
 2026-03-10 11:21:13,209 INFO CHECKOUT started
+2026-03-10 12:11:23,387 INFO TOOL check_delivery_district(ana fil malqa)
+2026-03-10 12:11:23,387 INFO TOOL_RESULT {'covered': True, 'district': 'الملقا', 'delivery_fee': 10, 'estimated_time': '25 دقيقة'}
+2026-03-10 12:11:30,379 INFO ORDER raw message: abi 2 zinger
+2026-03-10 12:11:39,348 INFO ORDER raw message: add coke
+2026-03-10 12:11:49,476 INFO ORDER raw message: change zinger 3
+2026-03-10 12:11:56,293 INFO ORDER raw message: remove coke
+2026-03-10 12:12:03,803 INFO ORDER raw message: checkout
+2026-03-10 12:12:03,804 INFO CHECKOUT started
+2026-03-10 12:37:57,427 INFO TOOL check_delivery_district(ana fil malqa)
+2026-03-10 12:37:57,427 INFO TOOL_RESULT {'covered': True, 'district': 'الملقا', 'delivery_fee': 10, 'estimated_time': '25 دقيقة'}
+2026-03-10 12:39:18,546 INFO TOOL check_delivery_district(ana fil malqa)
+2026-03-10 12:39:18,547 INFO TOOL_RESULT {'covered': True, 'district': 'الملقا', 'delivery_fee': 10, 'estimated_time': '25 دقيقة'}
+2026-03-10 21:21:07,941 INFO TOOL check_delivery_district(أدخل الحي)
+2026-03-10 21:21:07,943 INFO TOOL_RESULT {'covered': False, 'district': None, 'delivery_fee': 0, 'estimated_time': None}
+2026-03-10 21:21:09,740 WARNING Location LLM unavailable: Error code: 401 - {'error': {'message': 'User not found.', 'code': 401}}
+2026-03-10 21:22:42,441 WARNING Greeting LLM unavailable: Error code: 401 - {'error': {'message': 'User not found.', 'code': 401}}
+2026-03-10 21:22:48,799 INFO TOOL check_delivery_district(أدخل الحي)
+2026-03-10 21:22:48,799 INFO TOOL_RESULT {'covered': False, 'district': None, 'delivery_fee': 0, 'estimated_time': None}
+2026-03-10 21:22:49,578 WARNING Location LLM unavailable: Error code: 401 - {'error': {'message': 'User not found.', 'code': 401}}
+2026-03-10 21:23:28,547 WARNING Greeting LLM unavailable: Error code: 401 - {'error': {'message': 'User not found.', 'code': 401}}
+2026-03-10 21:24:10,747 INFO TOOL check_delivery_district(أدخل الحي)
+2026-03-10 21:24:10,749 INFO TOOL_RESULT {'covered': False, 'district': None, 'delivery_fee': 0, 'estimated_time': None}
+2026-03-10 21:24:11,658 WARNING Location LLM unavailable: Error code: 401 - {'error': {'message': 'User not found.', 'code': 401}}
+2026-03-10 21:25:28,511 WARNING Greeting LLM unavailable: Error code: 401 - {'error': {'message': 'User not found.', 'code': 401}}
+2026-03-10 21:29:17,433 WARNING Greeting LLM unavailable: Error code: 401 - {'error': {'message': 'User not found.', 'code': 401}}
+2026-03-10 21:30:29,870 INFO TOOL check_delivery_district(أدخل الحي)
+2026-03-10 21:30:29,871 INFO TOOL_RESULT {'covered': False, 'district': None, 'delivery_fee': 0, 'estimated_time': None}
+2026-03-10 21:30:31,009 WARNING Location LLM unavailable: Error code: 401 - {'error': {'message': 'User not found.', 'code': 401}}
+2026-03-10 21:31:46,939 WARNING Greeting LLM unavailable: Error code: 401 - {'error': {'message': 'User not found.', 'code': 401}}
+2026-03-10 21:32:03,423 INFO TOOL check_delivery_district(malqa)
+2026-03-10 21:32:03,424 INFO TOOL_RESULT {'covered': True, 'district': 'الملقا', 'delivery_fee': 10, 'estimated_time': '25 دقيقة'}
+2026-03-10 21:33:38,367 WARNING Greeting LLM unavailable: Error code: 401 - {'error': {'message': 'User not found.', 'code': 401}}
+2026-03-10 21:33:43,502 INFO TOOL check_delivery_district(malqa)
+2026-03-10 21:33:43,503 INFO TOOL_RESULT {'covered': True, 'district': 'الملقا', 'delivery_fee': 10, 'estimated_time': '25 دقيقة'}
+2026-03-10 21:40:52,287 INFO TOOL check_delivery_district(malqa)
+2026-03-10 21:45:07,666 INFO TOOL check_delivery_district(malqa)
+2026-03-10 21:47:28,699 INFO TOOL check_delivery_district(malqa)
+2026-03-10 21:48:16,421 INFO TOOL check_delivery_district(malqa)

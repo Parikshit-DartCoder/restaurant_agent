@@ -1,0 +1,2310 @@
+[2026-03-11 17:37:37,782] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:37:37,782] INFO | restaurant_agent | GREETING detected via rule
+[2026-03-11 17:37:37,782] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:37:37,782] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:37:37,782] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:37:37,782] INFO | LLM | LLM CALL START
+[2026-03-11 17:37:37,782] INFO | LLM | Initializing OpenAI client
+[2026-03-11 17:37:39,381] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:37:39,381] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:37:39,381] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:37:39,381] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:37:39,381] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:37:39,381] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:37:39,381] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:37:39,381] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:37:39,381] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:37:39,381] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:37:39,381] INFO | LLM | LLM CALL START
+[2026-03-11 17:37:41,582] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:37:41,583] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:37:41,583] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:37:41,583] INFO | restaurant_agent | ORDER_ADD بطاطس x1
+[2026-03-11 17:37:41,583] INFO | restaurant_agent | ORDER_ADD كولا x1
+[2026-03-11 17:37:41,583] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:37:41,583] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:37:41,583] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:37:41,583] INFO | LLM | LLM CALL START
+[2026-03-11 17:37:42,310] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:37:42,310] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:37:42,310] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:37:42,311] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:37:42,311] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:37:42,311] INFO | LLM | LLM CALL START
+[2026-03-11 17:37:42,912] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:37:42,912] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:37:42,912] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:37:42,912] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:37:42,912] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:37:42,912] INFO | LLM | LLM CALL START
+[2026-03-11 17:37:43,837] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:37:43,837] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:37:43,838] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:37:43,838] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:37:43,838] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:37:43,838] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:37:43,838] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:37:43,838] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:37:43,838] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:37:43,839] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:37:43,839] INFO | LLM | LLM CALL START
+[2026-03-11 17:37:45,294] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:37:45,294] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:37:45,294] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:37:45,294] INFO | restaurant_agent | ORDER_ADD بطاطس x1
+[2026-03-11 17:37:45,294] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:37:45,294] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:37:45,294] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:37:45,294] INFO | LLM | LLM CALL START
+[2026-03-11 17:37:46,351] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:37:46,351] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:37:46,351] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:37:46,353] INFO | restaurant_agent | ORDER_ADD بطاطس x3
+[2026-03-11 17:37:46,353] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:37:46,353] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:37:46,353] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:37:46,353] INFO | LLM | LLM CALL START
+[2026-03-11 17:37:47,519] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:37:47,519] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:37:47,519] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:37:47,519] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:37:47,520] INFO | restaurant_agent | AGENT_TRIGGER CheckoutAgent
+[2026-03-11 17:37:47,520] INFO | restaurant_agent | CHECKOUT subtotal=40 delivery=10 total=50
+[2026-03-11 17:37:47,520] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:37:47,520] INFO | restaurant_agent | GREETING detected via rule
+[2026-03-11 17:37:47,520] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:37:47,520] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:37:47,520] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:37:47,520] INFO | LLM | LLM CALL START
+[2026-03-11 17:37:48,215] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:37:48,215] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:37:48,215] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:37:48,215] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:37:48,215] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:37:48,215] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:37:48,215] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:37:48,215] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:37:48,215] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:37:48,215] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:37:48,215] INFO | LLM | LLM CALL START
+[2026-03-11 17:37:49,772] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:37:49,773] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:37:49,773] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:37:49,773] INFO | restaurant_agent | ORDER_ADD بطاطس x1
+[2026-03-11 17:37:49,773] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:37:49,773] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:37:49,773] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:37:49,773] INFO | LLM | LLM CALL START
+[2026-03-11 17:37:50,921] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:37:50,921] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:37:50,921] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:37:50,922] INFO | restaurant_agent | ORDER_UPDATE بطاطس x3
+[2026-03-11 17:37:50,922] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:37:50,922] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:37:50,922] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:37:50,922] INFO | LLM | LLM CALL START
+[2026-03-11 17:37:51,928] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:37:51,929] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:37:51,929] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:37:51,929] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:37:51,929] INFO | restaurant_agent | AGENT_TRIGGER CheckoutAgent
+[2026-03-11 17:37:51,929] INFO | restaurant_agent | CHECKOUT subtotal=30 delivery=10 total=40
+[2026-03-11 17:37:51,929] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:37:51,929] INFO | LLM | LLM CALL START
+[2026-03-11 17:37:52,545] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:37:52,545] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:37:52,545] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:37:52,545] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:37:52,545] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:37:52,545] INFO | LLM | LLM CALL START
+[2026-03-11 17:37:56,640] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:37:56,640] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:37:56,640] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:37:56,640] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:37:56,640] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:37:56,640] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:37:56,640] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:37:56,640] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:37:56,640] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:37:56,640] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:37:56,641] INFO | LLM | LLM CALL START
+[2026-03-11 17:37:58,617] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:37:58,617] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:37:58,617] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:37:58,618] INFO | restaurant_agent | ORDER_ADD بطاطس x1
+[2026-03-11 17:37:58,618] INFO | restaurant_agent | ORDER_ADD كولا x1
+[2026-03-11 17:37:58,618] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:37:58,618] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:37:58,618] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:37:58,618] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:00,740] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:00,740] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:00,740] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:00,740] INFO | restaurant_agent | ORDER_REMOVE كولا
+[2026-03-11 17:38:00,741] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:00,741] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:00,741] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:00,741] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:01,427] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:01,427] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:01,427] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:01,428] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:01,428] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:38:01,428] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:02,061] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:02,061] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:38:02,061] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:38:02,062] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:38:02,062] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:02,062] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:02,848] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:02,848] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:02,848] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:02,848] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:38:02,848] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:38:02,848] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:38:02,849] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:02,849] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:02,849] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:02,849] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:02,849] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:04,917] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:04,917] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:04,917] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:04,918] INFO | restaurant_agent | ORDER_ADD بطاطس x1
+[2026-03-11 17:38:04,918] INFO | restaurant_agent | ORDER_ADD كولا x1
+[2026-03-11 17:38:04,918] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:04,918] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:04,918] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:04,918] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:06,058] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:06,058] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:06,058] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:06,058] INFO | restaurant_agent | ORDER_REMOVE كولا
+[2026-03-11 17:38:06,059] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:06,059] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:06,059] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:06,059] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:07,169] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:07,170] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:07,170] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:07,170] INFO | restaurant_agent | ORDER_ADD زنجر دبل x1
+[2026-03-11 17:38:07,170] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:07,170] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:07,170] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:07,171] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:08,807] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:08,807] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:08,807] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:08,807] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:38:08,807] INFO | restaurant_agent | AGENT_TRIGGER CheckoutAgent
+[2026-03-11 17:38:08,807] INFO | restaurant_agent | CHECKOUT subtotal=45 delivery=10 total=55
+[2026-03-11 17:38:08,807] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:38:08,807] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:09,525] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:09,525] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:38:09,525] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:38:09,525] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:38:09,525] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:09,525] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:10,222] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:10,222] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:10,223] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:10,223] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:38:10,223] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:38:10,223] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:38:10,223] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:10,223] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:10,223] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:10,223] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:10,223] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:11,833] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:11,833] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:11,833] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:11,834] INFO | restaurant_agent | ORDER_ADD بطاطس x3
+[2026-03-11 17:38:11,834] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:11,834] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:11,834] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:11,834] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:12,983] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:12,983] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:12,983] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:12,983] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:38:12,984] INFO | restaurant_agent | AGENT_TRIGGER CheckoutAgent
+[2026-03-11 17:38:12,984] INFO | restaurant_agent | CHECKOUT subtotal=30 delivery=10 total=40
+[2026-03-11 17:38:12,984] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:38:12,984] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:13,603] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:13,604] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:38:13,604] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:38:13,604] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:38:13,604] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:13,604] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:14,350] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:14,350] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:14,350] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:14,350] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:38:14,351] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:38:14,351] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:38:14,351] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:14,351] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:14,351] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:14,351] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:14,351] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:16,776] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:16,777] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:16,777] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:16,777] INFO | restaurant_agent | ORDER_ADD زنجر دبل x1
+[2026-03-11 17:38:16,778] INFO | restaurant_agent | ORDER_ADD بطاطس x1
+[2026-03-11 17:38:16,778] INFO | restaurant_agent | ORDER_ADD كولا x1
+[2026-03-11 17:38:16,778] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:16,778] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:16,778] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:38:16,778] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:17,376] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:17,376] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:38:17,376] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:38:17,376] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:38:17,376] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:17,376] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:18,127] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:18,127] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:18,127] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:18,127] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:38:18,127] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:38:18,127] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:38:18,127] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:18,127] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:18,127] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:18,127] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:18,128] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:20,047] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:20,048] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:20,048] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:20,049] INFO | restaurant_agent | ORDER_ADD زنجر دبل x1
+[2026-03-11 17:38:20,049] INFO | restaurant_agent | ORDER_ADD بطاطس x1
+[2026-03-11 17:38:20,049] INFO | restaurant_agent | ORDER_ADD كولا x1
+[2026-03-11 17:38:20,049] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:20,049] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:20,049] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:20,049] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:21,324] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:21,324] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:21,324] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:21,324] INFO | restaurant_agent | ORDER_ADD بطاطس x2
+[2026-03-11 17:38:21,324] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:21,324] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:21,324] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:21,324] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:22,141] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:22,142] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:22,142] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:22,142] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:22,142] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:38:22,142] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:22,773] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:22,773] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:38:22,773] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:38:22,773] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:38:22,773] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:22,773] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:23,431] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:23,431] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:23,431] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:23,431] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:38:23,431] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:38:23,431] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:38:23,431] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:23,431] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:23,431] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:23,431] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:23,432] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:24,578] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:24,578] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:24,578] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:24,578] INFO | restaurant_agent | ORDER_ADD بطاطس x1
+[2026-03-11 17:38:24,578] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:24,578] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:24,579] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:24,579] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:25,872] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:25,873] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:25,873] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:25,873] INFO | restaurant_agent | ORDER_REMOVE بطاطس
+[2026-03-11 17:38:25,873] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:25,873] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:25,873] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:25,873] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:27,074] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:27,075] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:27,075] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:27,075] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:38:27,075] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:27,075] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:38:27,075] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:27,962] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:27,962] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:38:27,962] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:38:27,962] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:38:27,963] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:27,963] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:28,717] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:28,717] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:28,717] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:28,717] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:38:28,717] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:38:28,717] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:38:28,717] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:28,717] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:28,717] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:28,717] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:28,717] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:29,903] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:29,904] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:29,904] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:29,904] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:29,904] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:29,904] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:29,905] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:31,063] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:31,064] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:31,064] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:31,064] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:31,065] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:31,065] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:31,065] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:31,849] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:31,849] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:31,849] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:31,850] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:31,850] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:38:31,850] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:32,578] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:32,578] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:38:32,578] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:38:32,578] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:38:32,578] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:32,578] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:33,244] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:33,244] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:33,244] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:33,244] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:38:33,244] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:38:33,244] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:38:33,245] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:33,245] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:33,245] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:33,245] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:33,245] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:35,491] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:35,491] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:35,491] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:35,492] INFO | restaurant_agent | ORDER_ADD بطاطس x1
+[2026-03-11 17:38:35,492] INFO | restaurant_agent | ORDER_ADD كولا x1
+[2026-03-11 17:38:35,492] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:35,492] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:35,492] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:35,492] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:36,757] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:36,758] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:36,758] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:36,760] INFO | restaurant_agent | ORDER_UPDATE بطاطس x2
+[2026-03-11 17:38:36,760] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:36,760] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:36,760] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:36,760] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:38,062] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:38,062] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:38,062] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:38,062] INFO | restaurant_agent | ORDER_REMOVE كولا
+[2026-03-11 17:38:38,063] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:38,063] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:38,063] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:38,063] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:39,142] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:39,142] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:39,142] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:39,143] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:38:39,143] INFO | restaurant_agent | AGENT_TRIGGER CheckoutAgent
+[2026-03-11 17:38:39,143] INFO | restaurant_agent | CHECKOUT subtotal=20 delivery=10 total=30
+[2026-03-11 17:38:39,143] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:38:39,143] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:39,904] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:39,904] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:38:39,904] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:38:39,904] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:38:39,904] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:39,904] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:40,711] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:40,712] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:40,712] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:40,712] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:38:40,712] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:38:40,712] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:38:40,712] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:40,712] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:40,712] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:40,712] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:40,712] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:41,782] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:41,782] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:41,782] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:41,783] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:41,783] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:41,783] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:41,783] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:42,447] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:42,447] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:42,447] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:42,447] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:42,447] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:42,447] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:42,447] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:43,481] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:43,481] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:43,481] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:43,481] INFO | restaurant_agent | ORDER_ADD بطاطس x1
+[2026-03-11 17:38:43,481] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:43,481] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:43,481] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:43,482] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:44,409] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:44,409] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:44,410] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:44,410] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:44,410] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:38:44,410] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:45,015] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:45,016] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:38:45,016] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:38:45,016] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:38:45,016] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:45,016] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:45,841] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:45,842] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:45,842] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:45,842] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:38:45,842] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:38:45,842] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: السلام عليكم
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي برجر وبطاطس وكولا
+BOT: عذراً هذا الصنف غير موجود.
+تمت إضافة بطاطس × 1
+تمت إضافة كولا × 1
+USER: حساب
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: نعم
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي برجر وبطاطس
+BOT: عذراً هذا الصنف غير موجود.
+تمت إضافة بطاطس × 1
+USER: خل البطاطس 3
+BOT: تمت إضافة بطاطس × 3
+USER: خلاص
+BOT: ملخص الطلب:
+- بطاطس × 4
+المجموع الفرعي: 40
+رسوم التوصيل: 10
+الإجمالي: 50
+هل تؤكد الطلب؟ (نعم / تعديل)
+USER: نعم
+BOT: تم استلام الطلب. شكراً لك!
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: مرحبا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي برجر وبطاطس
+BOT: عذراً هذا الصنف غير موجود.
+تمت إضافة بطاطس × 1
+USER: غير البطاطس 3
+BOT: تم تعديل كمية بطاطس إلى 3
+USER: خلص
+BOT: ملخص الطلب:
+- بطاطس × 3
+المجموع الفرعي: 30
+رسوم التوصيل: 10
+الإجمالي: 40
+هل تؤكد الطلب؟ (نعم / تعديل)
+USER: نعم
+BOT: تم استلام الطلب. شكراً لك!
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي برجر وبطاطس وكولا
+BOT: عذراً هذا الصنف غير موجود.
+تمت إضافة بطاطس × 1
+تمت إضافة كولا × 1
+USER: شيل الكولا
+BOT: تم حذف كولا
+USER: حساب
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: نعم
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي برجر وبطاطس وكولا
+BOT: عذراً هذا الصنف غير موجود.
+تمت إضافة بطاطس × 1
+تمت إضافة كولا × 1
+USER: شيل الكولا
+BOT: تم حذف كولا
+USER: ضيف زنجر
+BOT: تمت إضافة زنجر دبل × 1
+USER: خلاص
+BOT: ملخص الطلب:
+- بطاطس × 1
+- زنجر دبل × 1
+المجموع الفرعي: 45
+رسوم التوصيل: 10
+الإجمالي: 55
+هل تؤكد الطلب؟ (نعم / تعديل)
+USER: نعم
+BOT: تم استلام الطلب. شكراً لك!
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي 2 برجر و3 بطاطس
+BOT: عذراً هذا الصنف غير موجود.
+تمت إضافة بطاطس × 3
+USER: خلص
+BOT: ملخص الطلب:
+- بطاطس × 3
+المجموع الفرعي: 30
+رسوم التوصيل: 10
+الإجمالي: 40
+هل تؤكد الطلب؟ (نعم / تعديل)
+USER: نعم
+BOT: تم استلام الطلب. شكراً لك!
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي زنجر وبطاطس وكولا
+BOT: تمت إضافة زنجر دبل × 1
+تمت إضافة بطاطس × 1
+تمت إضافة كولا × 1
+USER: تمام
+BOT: ماذا تريد أن تطلب؟
+USER: نعم
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي زنجر وبطاطس وكولا
+BOT: تمت إضافة زنجر دبل × 1
+تمت إضافة بطاطس × 1
+تمت إضافة كولا × 1
+USER: خل البطاطس 2
+BOT: تمت إضافة بطاطس × 2
+USER: حساب
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: نعم
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ضيف بطاطس
+BOT: تمت إضافة بطاطس × 1
+USER: شيل بطاطس
+BOT: تم حذف بطاطس
+USER: خلاص
+BOT: الطلب فارغ
+USER: نعم
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي برجر
+BOT: عذراً هذا الصنف غير موجود.
+USER: خل البرجر 3
+BOT: عذراً هذا الصنف غير موجود.
+USER: حساب
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: نعم
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي برجر وبطاطس وكولا
+BOT: عذراً هذا الصنف غير موجود.
+تمت إضافة بطاطس × 1
+تمت إضافة كولا × 1
+USER: غير البطاطس 2
+BOT: تم تعديل كمية بطاطس إلى 2
+USER: شيل الكولا
+BOT: تم حذف كولا
+USER: خلاص
+BOT: ملخص الطلب:
+- بطاطس × 2
+المجموع الفرعي: 20
+رسوم التوصيل: 10
+الإجمالي: 30
+هل تؤكد الطلب؟ (نعم / تعديل)
+USER: نعم
+BOT: تم استلام الطلب. شكراً لك!
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي برجر
+BOT: عذراً هذا الصنف غير موجود.
+USER: حساب
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: ضيف بطاطس
+BOT: تمت إضافة بطاطس × 1
+USER: حساب
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: نعم
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+[2026-03-11 17:38:45,842] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:45,842] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:45,842] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:45,842] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:45,842] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:47,561] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:47,562] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:47,562] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:47,563] INFO | restaurant_agent | ORDER_ADD بطاطس x1
+[2026-03-11 17:38:47,563] INFO | restaurant_agent | ORDER_ADD كولا x1
+[2026-03-11 17:38:47,563] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:47,563] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:47,563] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:47,563] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:48,720] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:48,721] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:48,721] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:48,722] INFO | restaurant_agent | ORDER_REMOVE بطاطس
+[2026-03-11 17:38:48,722] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:48,723] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:48,723] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:48,723] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:49,814] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:49,815] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:49,815] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:49,815] INFO | restaurant_agent | ORDER_ADD زنجر دبل x1
+[2026-03-11 17:38:49,816] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:49,816] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:49,816] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:49,816] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:50,934] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:50,934] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:50,934] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:50,935] INFO | restaurant_agent | ORDER_UPDATE زنجر دبل x3
+[2026-03-11 17:38:50,935] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:50,935] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:50,935] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:50,935] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:51,670] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:51,670] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:51,670] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:51,670] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:51,670] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:38:51,670] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:52,318] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:52,318] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:38:52,318] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:38:52,318] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:38:52,318] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:52,318] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:53,135] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:53,135] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:53,135] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:53,135] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:38:53,135] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:38:53,135] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:38:53,135] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:53,135] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:53,135] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:53,135] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:53,135] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:54,567] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:54,567] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:54,567] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:54,568] INFO | restaurant_agent | ORDER_ADD زنجر دبل x1
+[2026-03-11 17:38:54,568] INFO | restaurant_agent | ORDER_ADD بطاطس x1
+[2026-03-11 17:38:54,568] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:54,568] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:54,568] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:54,568] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:55,553] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:55,553] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:55,553] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:55,553] INFO | restaurant_agent | ORDER_REMOVE بطاطس
+[2026-03-11 17:38:55,554] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:55,554] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:55,554] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:55,554] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:56,486] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:56,487] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:56,487] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:56,487] INFO | restaurant_agent | ORDER_ADD كولا x1
+[2026-03-11 17:38:56,487] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:56,487] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:56,487] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:56,487] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:57,605] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:57,605] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:57,606] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:57,606] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:38:57,606] INFO | restaurant_agent | AGENT_TRIGGER CheckoutAgent
+[2026-03-11 17:38:57,606] INFO | restaurant_agent | CHECKOUT subtotal=41 delivery=10 total=51
+[2026-03-11 17:38:57,606] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:38:57,606] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:58,197] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:58,198] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:38:58,198] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:38:58,198] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:38:58,198] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:58,198] INFO | LLM | LLM CALL START
+[2026-03-11 17:38:59,119] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:38:59,120] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:38:59,120] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:38:59,120] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:38:59,120] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:38:59,120] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:38:59,120] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:59,120] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:38:59,120] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:38:59,120] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:38:59,120] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:00,436] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:00,436] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:00,436] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:00,437] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:00,437] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:00,437] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:00,437] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:01,536] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:01,537] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:01,537] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:01,537] INFO | restaurant_agent | ORDER_ADD بطاطس x1
+[2026-03-11 17:39:01,537] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:01,537] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:01,537] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:01,537] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:02,689] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:02,689] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:02,689] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:02,690] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:02,690] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:02,690] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:02,690] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:03,479] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:03,479] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:03,479] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:03,480] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:03,480] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:39:03,480] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:04,092] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:04,093] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:39:04,093] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:39:04,093] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:39:04,093] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:04,093] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:04,911] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:04,911] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:04,911] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:04,911] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:39:04,911] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:39:04,911] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:39:04,911] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:04,911] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:04,911] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:04,911] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:04,911] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:06,034] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:06,035] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:06,035] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:06,036] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:06,036] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:06,036] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:06,036] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:07,185] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:07,185] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:07,186] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:07,186] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:07,186] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:07,186] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:07,186] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:08,262] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:08,262] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:08,262] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:08,263] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:08,263] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:08,263] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:08,263] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:09,612] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:09,612] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:09,612] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:09,612] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:39:09,612] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:09,612] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:39:09,612] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:10,326] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:10,327] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:39:10,327] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:39:10,327] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:39:10,327] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:10,327] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:11,043] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:11,043] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:11,044] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:11,044] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:39:11,044] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:39:11,044] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:39:11,044] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:11,044] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:11,044] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:11,044] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:11,044] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:13,089] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:13,090] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:13,090] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:13,091] INFO | restaurant_agent | ORDER_ADD بطاطس x1
+[2026-03-11 17:39:13,091] INFO | restaurant_agent | ORDER_ADD كولا x1
+[2026-03-11 17:39:13,091] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:13,091] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:13,091] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:13,091] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:14,096] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:14,096] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:14,096] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:14,098] INFO | restaurant_agent | ORDER_UPDATE بطاطس x3
+[2026-03-11 17:39:14,098] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:14,098] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:14,098] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:14,098] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:15,091] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:15,092] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:15,092] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:15,092] INFO | restaurant_agent | ORDER_UPDATE كولا x2
+[2026-03-11 17:39:15,092] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:15,092] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:15,092] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:15,092] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:16,164] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:16,164] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:16,165] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:16,165] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:39:16,165] INFO | restaurant_agent | AGENT_TRIGGER CheckoutAgent
+[2026-03-11 17:39:16,165] INFO | restaurant_agent | CHECKOUT subtotal=42 delivery=10 total=52
+[2026-03-11 17:39:16,165] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:39:16,165] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:16,783] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:16,783] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:39:16,783] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:39:16,783] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:39:16,783] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:16,783] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:17,589] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:17,589] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:17,590] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:17,590] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:39:17,590] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:39:17,590] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:39:17,590] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:17,590] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:17,590] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:17,590] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:17,591] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:19,287] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:19,288] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:19,288] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:19,288] INFO | restaurant_agent | ORDER_ADD بطاطس x1
+[2026-03-11 17:39:19,289] INFO | restaurant_agent | ORDER_ADD كولا x1
+[2026-03-11 17:39:19,289] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:19,289] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:19,289] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:19,289] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:20,669] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:20,669] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:20,670] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:20,671] INFO | restaurant_agent | ORDER_REMOVE بطاطس
+[2026-03-11 17:39:20,671] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:20,672] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:20,672] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:20,672] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:21,787] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:21,788] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:21,788] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:21,789] INFO | restaurant_agent | ORDER_ADD زنجر دبل x1
+[2026-03-11 17:39:21,789] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:21,789] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:21,789] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:21,789] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:23,131] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:23,131] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:23,132] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:23,132] INFO | restaurant_agent | ORDER_UPDATE زنجر دبل x3
+[2026-03-11 17:39:23,132] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:23,132] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:23,133] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:23,133] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:24,342] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:24,343] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:24,343] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:24,343] INFO | restaurant_agent | ORDER_ADD بطاطس x1
+[2026-03-11 17:39:24,343] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:24,343] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:24,343] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:24,343] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:25,370] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:25,371] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:25,371] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:25,371] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:39:25,371] INFO | restaurant_agent | AGENT_TRIGGER CheckoutAgent
+[2026-03-11 17:39:25,371] INFO | restaurant_agent | CHECKOUT subtotal=121 delivery=10 total=131
+[2026-03-11 17:39:25,371] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:39:25,371] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:26,081] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:26,081] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:39:26,081] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:39:26,081] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:39:26,081] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:26,081] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:26,798] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:26,798] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:26,798] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:26,798] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:39:26,798] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:39:26,798] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:39:26,798] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:26,798] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:26,798] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:26,798] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:26,798] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:27,925] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:27,925] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:27,925] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:27,925] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:27,925] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:27,925] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:27,925] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:28,948] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:28,949] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:28,949] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:28,949] INFO | restaurant_agent | ORDER_ADD بطاطس x1
+[2026-03-11 17:39:28,949] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:28,949] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:28,949] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:28,949] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:30,075] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:30,075] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:30,075] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:30,076] INFO | restaurant_agent | ORDER_REMOVE بطاطس
+[2026-03-11 17:39:30,076] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:30,076] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:30,076] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:30,076] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:31,121] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:31,122] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:31,122] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:31,122] INFO | restaurant_agent | ORDER_ADD كولا x1
+[2026-03-11 17:39:31,122] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:31,122] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:31,122] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:31,122] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:32,452] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:32,452] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:32,453] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:32,453] INFO | restaurant_agent | ORDER_REMOVE كولا
+[2026-03-11 17:39:32,453] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:32,453] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:32,453] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:32,453] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:33,557] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:33,558] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:33,558] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:33,558] INFO | restaurant_agent | ORDER_ADD زنجر دبل x1
+[2026-03-11 17:39:33,558] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:33,558] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:33,559] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:33,559] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:34,887] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:34,887] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:34,888] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:34,888] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:39:34,888] INFO | restaurant_agent | AGENT_TRIGGER CheckoutAgent
+[2026-03-11 17:39:34,888] INFO | restaurant_agent | CHECKOUT subtotal=35 delivery=10 total=45
+[2026-03-11 17:39:34,888] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:39:34,888] INFO | restaurant_agent | GREETING detected via rule
+[2026-03-11 17:39:34,888] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:39:34,888] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:39:34,888] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:34,888] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:35,530] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:35,530] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:35,530] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:35,530] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:39:35,530] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:39:35,530] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:39:35,530] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:35,530] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:35,530] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:35,530] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:35,530] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:35,531] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:36,456] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:36,456] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:36,456] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:36,456] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:39:36,456] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:36,456] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:39:36,456] INFO | restaurant_agent | GREETING detected via rule
+[2026-03-11 17:39:36,456] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:39:36,456] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:39:36,456] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:36,456] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:37,138] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:37,138] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:37,138] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:37,138] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:39:37,138] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:39:37,139] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:39:37,139] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:37,139] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:37,139] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:37,140] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:37,140] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:38,981] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:38,981] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:38,981] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:38,982] INFO | restaurant_agent | ORDER_ADD برجر انجوس x1
+[2026-03-11 17:39:38,982] INFO | restaurant_agent | ORDER_ADD بطاطس x1
+[2026-03-11 17:39:38,982] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:38,982] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:38,982] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:38,982] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:40,505] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:40,505] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:40,506] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:40,506] INFO | restaurant_agent | ORDER_UPDATE بطاطس x3
+[2026-03-11 17:39:40,506] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:40,506] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:40,506] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:40,506] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:41,528] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:41,528] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:41,528] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:41,528] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:39:41,528] INFO | restaurant_agent | AGENT_TRIGGER CheckoutAgent
+[2026-03-11 17:39:41,529] INFO | restaurant_agent | CHECKOUT subtotal=69 delivery=10 total=79
+[2026-03-11 17:39:41,529] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:39:41,529] INFO | restaurant_agent | GREETING detected via rule
+[2026-03-11 17:39:41,529] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:39:41,529] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:39:41,529] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:41,529] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:42,446] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:42,447] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:42,447] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:42,447] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:39:42,447] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:39:42,447] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:39:42,447] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:42,447] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:42,447] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:42,447] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:42,447] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:42,447] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:42,447] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:43,434] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:43,435] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:43,435] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:43,435] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:39:43,435] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:43,435] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:39:43,435] INFO | restaurant_agent | GREETING detected via rule
+[2026-03-11 17:39:43,435] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:39:43,435] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:39:43,435] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:43,435] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:44,211] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:44,211] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:44,211] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:44,211] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:39:44,211] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:39:44,211] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:39:44,211] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:44,211] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:44,212] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:44,212] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:44,212] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:45,330] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:45,330] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:45,330] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:45,331] INFO | restaurant_agent | ORDER_ADD برجر انجوس x1
+[2026-03-11 17:39:45,331] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:45,331] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:45,331] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:45,331] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:46,967] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:46,967] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:46,967] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:46,967] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:39:46,968] INFO | restaurant_agent | AGENT_TRIGGER CheckoutAgent
+[2026-03-11 17:39:46,968] INFO | restaurant_agent | CHECKOUT subtotal=39 delivery=10 total=49
+[2026-03-11 17:39:46,968] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:46,968] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:46,968] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:46,968] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:48,808] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:48,808] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:48,808] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:48,808] INFO | restaurant_agent | ORDER_ADD بطاطس x1
+[2026-03-11 17:39:48,808] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:48,808] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:48,808] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:48,808] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:50,043] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:50,043] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:50,043] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:50,043] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:39:50,043] INFO | restaurant_agent | AGENT_TRIGGER CheckoutAgent
+[2026-03-11 17:39:50,043] INFO | restaurant_agent | CHECKOUT subtotal=49 delivery=10 total=59
+[2026-03-11 17:39:50,043] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:39:50,043] INFO | restaurant_agent | GREETING detected via rule
+[2026-03-11 17:39:50,043] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:39:50,043] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:39:50,043] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:50,043] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:50,718] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:50,719] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:50,719] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:50,719] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:39:50,719] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:39:50,719] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي برجر وبطاطس وكولا
+BOT: عذراً هذا الصنف غير موجود.
+تمت إضافة بطاطس × 1
+تمت إضافة كولا × 1
+USER: شيل البطاطس
+BOT: تم حذف بطاطس
+USER: ضيف زنجر
+BOT: تمت إضافة زنجر دبل × 1
+USER: غير زنجر 3
+BOT: تم تعديل كمية زنجر دبل إلى 3
+USER: حساب
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: نعم
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي زنجر وبطاطس
+BOT: تمت إضافة زنجر دبل × 1
+تمت إضافة بطاطس × 1
+USER: شيل بطاطس
+BOT: تم حذف بطاطس
+USER: ضيف كولا
+BOT: تمت إضافة كولا × 1
+USER: خلاص
+BOT: ملخص الطلب:
+- زنجر دبل × 1
+- كولا × 1
+المجموع الفرعي: 41
+رسوم التوصيل: 10
+الإجمالي: 51
+هل تؤكد الطلب؟ (نعم / تعديل)
+USER: نعم
+BOT: تم استلام الطلب. شكراً لك!
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ضيف برجر
+BOT: عذراً هذا الصنف غير موجود.
+USER: ضيف بطاطس
+BOT: تمت إضافة بطاطس × 1
+USER: شيل برجر
+BOT: عذراً هذا الصنف غير موجود.
+USER: حساب
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: نعم
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي برجر
+BOT: عذراً هذا الصنف غير موجود.
+USER: ابي برجر
+BOT: عذراً هذا الصنف غير موجود.
+USER: خل البرجر 3
+BOT: عذراً هذا الصنف غير موجود.
+USER: خلص
+BOT: الطلب فارغ
+USER: نعم
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي برجر بطاطس كولا
+BOT: عذراً هذا الصنف غير موجود.
+تمت إضافة بطاطس × 1
+تمت إضافة كولا × 1
+USER: غير البطاطس 3
+BOT: تم تعديل كمية بطاطس إلى 3
+USER: غير الكولا 2
+BOT: تم تعديل كمية كولا إلى 2
+USER: خلاص
+BOT: ملخص الطلب:
+- بطاطس × 3
+- كولا × 2
+المجموع الفرعي: 42
+رسوم التوصيل: 10
+الإجمالي: 52
+هل تؤكد الطلب؟ (نعم / تعديل)
+USER: نعم
+BOT: تم استلام الطلب. شكراً لك!
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي برجر بطاطس كولا
+BOT: عذراً هذا الصنف غير موجود.
+تمت إضافة بطاطس × 1
+تمت إضافة كولا × 1
+USER: شيل البطاطس
+BOT: تم حذف بطاطس
+USER: ضيف زنجر
+BOT: تمت إضافة زنجر دبل × 1
+USER: غير زنجر 3
+BOT: تم تعديل كمية زنجر دبل إلى 3
+USER: ضيف بطاطس
+BOT: تمت إضافة بطاطس × 1
+USER: حساب
+BOT: ملخص الطلب:
+- كولا × 1
+- زنجر دبل × 3
+- بطاطس × 1
+المجموع الفرعي: 121
+رسوم التوصيل: 10
+الإجمالي: 131
+هل تؤكد الطلب؟ (نعم / تعديل)
+USER: نعم
+BOT: تم استلام الطلب. شكراً لك!
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي برجر
+BOT: عذراً هذا الصنف غير موجود.
+USER: ضيف بطاطس
+BOT: تمت إضافة بطاطس × 1
+USER: شيل بطاطس
+BOT: تم حذف بطاطس
+USER: ضيف كولا
+BOT: تمت إضافة كولا × 1
+USER: شيل كولا
+BOT: تم حذف كولا
+USER: ضيف زنجر
+BOT: تمت إضافة زنجر دبل × 1
+USER: خلاص
+BOT: ملخص الطلب:
+- زنجر دبل × 1
+المجموع الفرعي: 35
+رسوم التوصيل: 10
+الإجمالي: 45
+هل تؤكد الطلب؟ (نعم / تعديل)
+USER: نعم
+BOT: تم استلام الطلب. شكراً لك!
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: hi
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: yes
+BOT: ماذا تريد أن تطلب؟
+USER: add burger coke fries
+BOT: ماذا تريد أن تطلب؟
+USER: that's it
+BOT: الطلب فارغ
+USER: yes
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: hi
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: yes
+BOT: ماذا تريد أن تطلب؟
+USER: add burger fries
+BOT: تمت إضافة برجر انجوس × 1
+تمت إضافة بطاطس × 1
+USER: change fries to 3
+BOT: تم تعديل كمية بطاطس إلى 3
+USER: done
+BOT: ملخص الطلب:
+- برجر انجوس × 1
+- بطاطس × 3
+المجموع الفرعي: 69
+رسوم التوصيل: 10
+الإجمالي: 79
+هل تؤكد الطلب؟ (نعم / تعديل)
+USER: yes
+BOT: تم استلام الطلب. شكراً لك!
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: hi
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: yes
+BOT: ماذا تريد أن تطلب؟
+USER: add burger coke fries
+BOT: ماذا تريد أن تطلب؟
+USER: remove coke
+BOT: ماذا تريد أن تطلب؟
+USER: that's it
+BOT: الطلب فارغ
+USER: yes
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: hi
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: yes
+BOT: ماذا تريد أن تطلب؟
+USER: add burger
+BOT: تمت إضافة برجر انجوس × 1
+USER: that's it
+BOT: ملخص الطلب:
+- برجر انجوس × 1
+المجموع الفرعي: 39
+رسوم التوصيل: 10
+الإجمالي: 49
+هل تؤكد الطلب؟ (نعم / تعديل)
+USER: add fries
+BOT: تمت إضافة بطاطس × 1
+USER: done
+BOT: ملخص الطلب:
+- برجر انجوس × 1
+- بطاطس × 1
+المجموع الفرعي: 49
+رسوم التوصيل: 10
+الإجمالي: 59
+هل تؤكد الطلب؟ (نعم / تعديل)
+USER: yes
+BOT: تم استلام الطلب. شكراً لك!
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: hi
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: yes
+[2026-03-11 17:39:50,719] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:50,719] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:50,719] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:50,719] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:50,719] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:51,780] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:51,780] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:51,780] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:51,781] INFO | restaurant_agent | ORDER_ADD برجر انجوس x1
+[2026-03-11 17:39:51,781] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:51,781] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:51,781] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:51,781] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:52,889] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:52,890] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:52,890] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:52,890] INFO | restaurant_agent | ORDER_UPDATE برجر انجوس x3
+[2026-03-11 17:39:52,891] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:52,891] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:52,891] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:52,891] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:53,825] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:53,825] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:53,825] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:53,825] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:39:53,825] INFO | restaurant_agent | AGENT_TRIGGER CheckoutAgent
+[2026-03-11 17:39:53,825] INFO | restaurant_agent | CHECKOUT subtotal=117 delivery=10 total=127
+[2026-03-11 17:39:53,826] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:39:53,826] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:54,429] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:54,429] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:39:54,429] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:39:54,429] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:39:54,429] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:54,429] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:55,116] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:55,116] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:55,116] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:55,116] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:39:55,116] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:39:55,116] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:39:55,116] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:55,116] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:55,117] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:55,117] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:55,117] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:55,841] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:55,841] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:55,842] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:55,842] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:55,842] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:55,842] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:55,842] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:57,613] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:57,613] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:57,613] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:57,613] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:39:57,613] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:57,613] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:39:57,613] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:58,199] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:58,200] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:39:58,200] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:39:58,200] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:39:58,200] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:58,200] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:58,908] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:58,908] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:58,908] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:58,908] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:39:58,908] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:39:58,908] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:39:58,908] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:58,908] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:58,908] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:58,908] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:58,908] INFO | LLM | LLM CALL START
+[2026-03-11 17:39:59,663] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:39:59,663] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:39:59,663] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:39:59,663] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:39:59,664] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:39:59,664] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:39:59,664] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:00,389] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:00,390] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:00,390] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:00,390] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:00,390] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:40:00,390] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:01,038] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:01,038] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:40:01,038] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:40:01,038] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:40:01,038] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:01,038] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:01,743] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:01,743] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:01,743] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:01,743] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:40:01,743] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:40:01,743] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:40:01,743] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:01,743] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:01,743] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:01,743] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:01,743] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:02,505] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:02,505] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:02,506] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:02,506] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:02,506] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:02,506] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:02,506] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:03,669] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:03,669] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:03,669] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:03,669] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:40:03,669] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:03,669] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:40:03,670] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:04,269] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:04,269] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:40:04,269] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:40:04,269] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:40:04,269] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:04,269] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:04,956] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:04,957] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:04,957] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:04,957] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:40:04,957] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:40:04,957] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:40:04,957] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:04,957] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:04,957] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:04,957] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:04,957] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:05,663] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:05,663] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:05,664] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:05,664] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:05,664] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:05,664] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:05,664] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:07,044] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:07,044] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:07,044] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:07,045] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:40:07,045] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:07,045] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:40:07,045] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:07,647] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:07,647] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:40:07,648] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:40:07,648] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:40:07,648] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:07,648] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:08,353] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:08,353] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:08,353] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:08,353] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:40:08,353] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:40:08,353] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:40:08,353] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:08,354] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:08,354] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:08,354] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:08,354] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:09,597] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:09,597] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:09,597] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:09,598] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:09,598] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:09,598] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:09,598] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:10,360] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:10,360] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:10,361] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:10,361] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:10,361] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:40:10,361] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:11,022] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:11,023] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:40:11,023] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:40:11,023] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:40:11,023] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:11,023] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:11,951] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:11,952] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:11,952] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:11,952] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:40:11,952] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:40:11,952] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:40:11,952] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:11,952] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:11,952] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:11,952] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:11,952] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:12,975] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:12,975] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:12,975] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:12,975] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:12,975] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:12,976] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:12,976] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:14,010] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:14,010] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:14,010] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:14,010] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:40:14,010] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:14,010] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:40:14,010] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:14,604] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:14,604] INFO | restaurant_agent | LLM intent result=GREETING
+[2026-03-11 17:40:14,605] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:40:14,605] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:40:14,605] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:14,605] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:15,377] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:15,377] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:15,377] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:15,377] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:40:15,377] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:40:15,377] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:40:15,377] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:15,377] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:15,378] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:15,378] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:15,378] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:16,064] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:16,065] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:16,065] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:16,065] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:16,065] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:16,065] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:16,065] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:16,765] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:16,765] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:16,765] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:16,765] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:16,766] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:40:16,766] INFO | restaurant_agent | GREETING detected via rule
+[2026-03-11 17:40:16,766] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:40:16,766] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:40:16,766] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:16,766] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:17,481] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:17,482] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:17,482] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:17,482] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:40:17,482] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:40:17,482] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:40:17,482] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:17,482] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:17,482] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:17,482] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:17,482] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:18,170] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:18,170] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:18,170] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:18,171] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:18,171] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:18,171] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:18,171] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:19,488] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:19,489] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:19,489] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:19,489] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:40:19,489] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:19,490] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:40:19,490] INFO | restaurant_agent | GREETING detected via rule
+[2026-03-11 17:40:19,490] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:40:19,490] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:40:19,490] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:19,490] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:20,248] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:20,248] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:20,248] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:20,248] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:40:20,248] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:40:20,248] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:40:20,249] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:20,249] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:20,249] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:20,249] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:20,249] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:21,051] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:21,052] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:21,052] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:21,052] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:21,052] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:21,052] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:21,052] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:22,094] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:22,095] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:22,095] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:22,095] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:40:22,095] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:22,095] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:40:22,095] INFO | restaurant_agent | GREETING detected via rule
+[2026-03-11 17:40:22,095] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:40:22,095] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:40:22,096] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:22,096] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:22,815] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:22,815] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:22,815] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:22,815] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:40:22,816] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:40:22,816] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:40:22,816] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:22,816] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:22,816] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:22,816] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:22,816] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:24,070] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:24,071] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:24,071] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:24,072] INFO | restaurant_agent | ORDER_ADD بطاطس سبايسي x1
+[2026-03-11 17:40:24,072] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:24,072] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:24,072] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:24,072] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:25,264] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:25,264] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:25,264] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:25,264] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:40:25,264] INFO | restaurant_agent | AGENT_TRIGGER CheckoutAgent
+[2026-03-11 17:40:25,265] INFO | restaurant_agent | CHECKOUT subtotal=15 delivery=10 total=25
+[2026-03-11 17:40:25,265] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:40:25,265] INFO | restaurant_agent | GREETING detected via rule
+[2026-03-11 17:40:25,265] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:40:25,265] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:40:25,265] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:25,265] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:26,084] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:26,084] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:26,084] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:26,085] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:40:26,085] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:40:26,085] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:40:26,085] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:26,085] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:26,085] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:26,085] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:26,085] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:26,802] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:26,803] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:26,803] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:26,803] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:26,803] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:26,803] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:26,803] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:28,431] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:28,432] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:28,432] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:28,432] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:40:28,432] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:28,432] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:40:28,432] INFO | restaurant_agent | GREETING detected via rule
+[2026-03-11 17:40:28,432] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:40:28,432] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:40:28,432] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:28,432] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:29,156] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:29,156] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:29,157] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:29,157] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:40:29,157] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:40:29,157] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:40:29,157] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:29,157] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:29,157] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:29,157] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:29,157] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:30,179] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:30,179] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:30,179] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:30,182] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:30,182] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:30,182] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:30,182] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:31,312] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:31,313] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:31,313] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:31,313] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:40:31,313] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:31,313] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:40:31,314] INFO | restaurant_agent | GREETING detected via rule
+[2026-03-11 17:40:31,314] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:40:31,314] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:40:31,314] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:31,314] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:32,123] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:32,124] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:32,124] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:32,124] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:40:32,124] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:40:32,124] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:40:32,124] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:32,124] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:32,124] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:32,124] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:32,124] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:32,843] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:32,844] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:32,844] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:32,844] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:32,844] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:32,844] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:32,844] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:34,584] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:34,584] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:34,584] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:34,584] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:40:34,584] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:34,584] INFO | restaurant_agent | AGENT_TRIGGER GreetingAgent
+[2026-03-11 17:40:34,585] INFO | restaurant_agent | GREETING detected via rule
+[2026-03-11 17:40:34,585] INFO | restaurant_agent | HANDOFF GreetingAgent → LocationAgent
+[2026-03-11 17:40:34,585] INFO | restaurant_agent | AGENT_TRIGGER LocationAgent
+[2026-03-11 17:40:34,585] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:34,585] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:35,299] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:35,300] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:35,300] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:35,300] INFO | restaurant_agent | LLM_LOCATION_RESULT district=malqa
+[2026-03-11 17:40:35,300] INFO | restaurant_agent | STATE district=الملقا delivery_fee=10
+[2026-03-11 17:40:35,301] INFO | restaurant_agent | HANDOFF LocationAgent → OrderAgent
+[2026-03-11 17:40:35,301] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:35,301] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:35,301] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:35,301] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:35,301] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:36,119] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:36,119] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:36,119] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:36,119] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+[2026-03-11 17:40:36,119] INFO | restaurant_agent | LLM_CALL OrderParser
+[2026-03-11 17:40:36,119] INFO | LLM | CHAT_JSON START
+[2026-03-11 17:40:36,119] INFO | LLM | LLM CALL START
+[2026-03-11 17:40:37,247] INFO | LLM | LLM RESPONSE RECEIVED
+[2026-03-11 17:40:37,247] INFO | LLM | Raw LLM output captured
+[2026-03-11 17:40:37,247] INFO | LLM | JSON successfully parsed
+[2026-03-11 17:40:37,247] INFO | restaurant_agent | HANDOFF OrderAgent → CheckoutAgent
+[2026-03-11 17:40:37,248] INFO | restaurant_agent | AGENT_TRIGGER OrderAgent
+BOT: ماذا تريد أن تطلب؟
+USER: add burger
+BOT: تمت إضافة برجر انجوس × 1
+USER: change burger to three
+BOT: تم تعديل كمية برجر انجوس إلى 3
+USER: done
+BOT: ملخص الطلب:
+- برجر انجوس × 3
+المجموع الفرعي: 117
+رسوم التوصيل: 10
+الإجمالي: 127
+هل تؤكد الطلب؟ (نعم / تعديل)
+USER: yes
+BOT: تم استلام الطلب. شكراً لك!
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي شي آكله
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: خلاص
+BOT: الطلب فارغ
+USER: نعم
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: فاجئني
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: حساب
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: نعم
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي شي حار
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: خلاص
+BOT: الطلب فارغ
+USER: نعم
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي شي رخيص
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: خلص
+BOT: الطلب فارغ
+USER: نعم
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: عطني وجبة
+BOT: عذراً هذا الصنف غير موجود.
+USER: حساب
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: نعم
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: ابي شي كويس
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: خلاص
+BOT: الطلب فارغ
+USER: نعم
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: هلا
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: ايه
+BOT: ماذا تريد أن تطلب؟
+USER: اطلب لي شي
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: حساب
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: نعم
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: hi
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: yes
+BOT: ماذا تريد أن تطلب؟
+USER: i want food
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: that's it
+BOT: الطلب فارغ
+USER: yes
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: hi
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: yes
+BOT: ماذا تريد أن تطلب؟
+USER: surprise me
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: done
+BOT: الطلب فارغ
+USER: yes
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: hi
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: yes
+BOT: ماذا تريد أن تطلب؟
+USER: give me something spicy
+BOT: تمت إضافة بطاطس سبايسي × 1
+USER: that's it
+BOT: ملخص الطلب:
+- بطاطس سبايسي × 1
+المجموع الفرعي: 15
+رسوم التوصيل: 10
+الإجمالي: 25
+هل تؤكد الطلب؟ (نعم / تعديل)
+USER: yes
+BOT: تم استلام الطلب. شكراً لك!
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: hi
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: yes
+BOT: ماذا تريد أن تطلب؟
+USER: give me something cheap
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: done
+BOT: الطلب فارغ
+USER: yes
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: hi
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: yes
+BOT: ماذا تريد أن تطلب؟
+USER: give me a combo meal
+BOT: عذراً هذا الصنف غير موجود.
+USER: that's it
+BOT: الطلب فارغ
+USER: yes
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: hi
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: yes
+BOT: ماذا تريد أن تطلب؟
+USER: i want something good
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: done
+BOT: الطلب فارغ
+USER: yes
+BOT: ماذا تريد أن تطلب؟
+
+==============================
+NEW TEST CONVERSATION
+==============================
+
+USER: hi
+BOT: أدخل الحي:
+USER: malqa
+BOT: تم تأكيد التوصيل إلى حي الملقا.
+BOT: ماذا تريد أن تطلب؟
+USER: yes
+BOT: ماذا تريد أن تطلب؟
+USER: order for me
+BOT: لم أفهم الطلب. ماذا تريد أن تطلب؟
+USER: that's it
+BOT: الطلب فارغ
+USER: yes
+BOT: ماذا تريد أن تطلب؟
