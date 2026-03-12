@@ -8,10 +8,15 @@ class EscalationAgent:
     def run(self, message, state):
 
         logger.info("AGENT_TRIGGER EscalationAgent")
-        logger.info(f"ESCALATION_MESSAGE {message}")
+
+        # reset conversation
+        state.reset()
 
         return """
 نعتذر عن المشكلة.
 
-سيتم تحويلك الآن إلى أحد ممثلي خدمة العملاء لمساعدتك بشكل أفضل.
+سيتم تحويلك إلى خدمة العملاء.
+
+يمكنك بدء طلب جديد بكتابة:
+مرحبا
 """

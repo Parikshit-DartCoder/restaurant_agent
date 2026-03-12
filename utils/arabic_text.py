@@ -1,5 +1,6 @@
 import re
-
+import json
+import os
 
 # ----------------------------------
 # BASIC NORMALIZATION
@@ -25,12 +26,66 @@ def normalize_text(text: str):
 
 
 # ----------------------------------
-# MENU NORMALIZATION
+# BUILD MENU INDEX
+# ----------------------------------
+
+_MENU_INDEX = None
+
+
+def _build_menu_index():
+
+    global _MENU_INDEX
+
+    if _MENU_INDEX:
+        return _MENU_INDEX
+
+    base_dir = os.path.dirname(os.path.dirname(__file__))
+    menu_path = os.path.join(base_dir, "data", "menu.json")
+
+    with open(menu_path, "r", encoding="utf-8") as f:
+        menu = json.load(f)
+
+    index = {}
+
+    for item in menu:
+
+        ar = normalize_text(item["name_ar"])
+        en = normalize_text(item["name_en"])
+
+        index[ar] = ar
+        index[en] = ar
+
+        for token in ar.split():
+            index[token] = ar
+
+        for token in en.split():
+            index[token] = ar
+
+    _MENU_INDEX = index
+
+    return index
+
+
+# ----------------------------------
+# MENU NORMALIZER
 # ----------------------------------
 
 def normalize_menu_text(text):
 
-    return normalize_text(text)
+    text = normalize_text(text)
+
+    index = _build_menu_index()
+
+    if text in index:
+        return index[text]
+
+    tokens = text.split()
+
+    for t in tokens:
+        if t in index:
+            return index[t]
+
+    return text
 
 
 # ----------------------------------

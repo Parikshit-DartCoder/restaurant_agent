@@ -21,6 +21,10 @@ class LocationAgent:
 
         logger.info("AGENT_TRIGGER LocationAgent")
 
+        # escalation detection
+        if "شكوى" in message or "complaint" in message:
+            return "ESCALATION"
+
         data = chat_json([
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": message}

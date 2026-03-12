@@ -1,5 +1,6 @@
 from services.llm_service import chat_json
 from tools.menu_tools import get_best_menu_match
+from tools.order_tools import find_best_cart_item
 from utils.arabic_text import normalize_menu_text, contains_any, YES_WORDS
 from utils.logger import get_logger
 
@@ -17,43 +18,29 @@ class OrderAgent:
 
         message = message.strip()
 
-        # ------------------------------------
-        # Ignore confirmations
-        # ------------------------------------
+        # ignore confirmations
         if contains_any(message, YES_WORDS):
             return "ماذا تريد أن تطلب؟"
 
-        parsed = None
-
         try:
-
-            logger.info("LLM_CALL OrderParser")
 
             parsed = chat_json([
                 {
                     "role": "system",
                     "content": """
-أنت مساعد طلبات مطعم.
-
 حلل رسالة المستخدم وارجع JSON فقط.
 
-يمكن أن يكون الرد:
-object واحد
-او list من objects
-
-كل object يجب أن يكون بالشكل التالي:
-
 {
- "action": "add|remove|update|checkout",
- "item": "string",
+ "action": "add|remove|update|replace|checkout",
+ "item": "string أو null",
+ "new_item": "string أو null",
  "quantity": number
 }
 
-قواعد:
-- اذا المستخدم يريد انهاء الطلب استخدم action=checkout
+القواعد:
+- اذا المستخدم يريد انهاء الطلب استخدم checkout
 - اذا لم يذكر الكمية اجعلها 1
-- اذا كان الطلب تعديل كمية استخدم update
-- اذا كان حذف استخدم remove
+- يمكن ارجاع اكثر من امر في قائمة
 """
                 },
                 {"role": "user", "content": message}
@@ -61,16 +48,10 @@ object واحد
 
         except Exception as e:
 
-            logger.warning("LLM parsing failed: %s", e)
+            logger.warning(f"LLM parsing failed: {e}")
 
             return "لم أفهم الطلب. ماذا تريد أن تطلب؟"
 
-        if not parsed:
-            return "لم أفهم الطلب. ماذا تريد أن تطلب؟"
-
-        # ------------------------------------
-        # Normalize output to list
-        # ------------------------------------
         if isinstance(parsed, dict):
             parsed = [parsed]
 
@@ -80,89 +61,98 @@ object واحد
 
             action = cmd.get("action")
             item = cmd.get("item")
+            new_item = cmd.get("new_item")
             qty = cmd.get("quantity", 1)
 
-            # ---------------------------
-            # CHECKOUT
-            # ---------------------------
             if action == "checkout":
-
-                logger.info("HANDOFF OrderAgent → CheckoutAgent")
-
                 return "CHECKOUT"
 
-            if not item:
-                continue
+            if item:
+                item = normalize_menu_text(item)
 
-            item = normalize_menu_text(item)
+            if new_item:
+                new_item = normalize_menu_text(new_item)
 
-            menu_item = get_best_menu_match(item)
-
-            if not menu_item:
-
-                responses.append("عذراً هذا الصنف غير موجود.")
-
-                continue
-
-            # ---------------------------
-            # ADD
-            # ---------------------------
+            # ---------------- ADD ----------------
             if action == "add":
 
-                state.add_item(menu_item, qty)
+                if not item:
+                    responses.append("ما هو الصنف الذي تريد إضافته؟")
+                    continue
 
-                logger.info(
-                    f"ORDER_ADD {menu_item['name_ar']} x{qty}"
-                )
+                menu_item = get_best_menu_match(item)
+
+                if not menu_item:
+                    responses.append("هذا الصنف غير موجود.")
+                    continue
+
+                state.add_item(menu_item, qty)
 
                 responses.append(
                     f"تمت إضافة {menu_item['name_ar']} × {qty}"
                 )
 
-            # ---------------------------
-            # REMOVE
-            # ---------------------------
+            # ---------------- REMOVE ----------------
             elif action == "remove":
 
-                if state.remove_item(menu_item):
+                cart_name = find_best_cart_item(state, item)
 
-                    logger.info(
-                        f"ORDER_REMOVE {menu_item['name_ar']}"
-                    )
+                if cart_name:
 
-                    responses.append(
-                        f"تم حذف {menu_item['name_ar']}"
-                    )
+                    menu_item = get_best_menu_match(cart_name)
+
+                    if menu_item:
+                        state.remove_item(menu_item)
+                        responses.append(f"تم حذف {cart_name}")
+                    else:
+                        responses.append("العنصر غير موجود في الطلب")
 
                 else:
+                    responses.append("العنصر غير موجود في الطلب")
 
-                    responses.append(
-                        "العنصر غير موجود في الطلب"
-                    )
-
-            # ---------------------------
-            # UPDATE
-            # ---------------------------
+            # ---------------- UPDATE ----------------
             elif action == "update":
 
-                if state.update_item(menu_item, qty):
+                cart_name = find_best_cart_item(state, item)
 
-                    logger.info(
-                        f"ORDER_UPDATE {menu_item['name_ar']} x{qty}"
-                    )
+                if cart_name:
+
+                    menu_item = get_best_menu_match(cart_name)
+
+                    if menu_item:
+                        state.update_item(menu_item, qty)
+                        responses.append(
+                            f"تم تعديل كمية {cart_name} إلى {qty}"
+                        )
+                    else:
+                        responses.append("العنصر غير موجود في الطلب")
+
+                else:
+                    responses.append("العنصر غير موجود في الطلب")
+
+            # ---------------- REPLACE ----------------
+            elif action == "replace":
+
+                old_name = find_best_cart_item(state, item)
+
+                new_menu = get_best_menu_match(new_item)
+
+                if old_name and new_menu:
+
+                    old_menu = get_best_menu_match(old_name)
+
+                    state.remove_item(old_menu)
+                    state.add_item(new_menu, qty)
 
                     responses.append(
-                        f"تم تعديل كمية {menu_item['name_ar']} إلى {qty}"
+                        f"تم حذف {old_menu['name_ar']} وتمت إضافة {new_menu['name_ar']} × {qty}"
                     )
 
                 else:
 
-                    responses.append(
-                        "العنصر غير موجود في الطلب"
-                    )
+                    responses.append("تعذر تنفيذ الاستبدال.")
 
         if not responses:
-
-            return "لم أفهم الطلب. ماذا تريد أن تطلب؟"
+            return "لم أفهم الطلب."
 
         return "\n".join(responses)
